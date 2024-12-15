@@ -1,0 +1,96 @@
+/* 通用样式 */
+html, body {
+    height: 100%;    /* 确保页面充满视口 */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* 确保页面至少高度为视口高度 */
+}
+
+header {
+    background-color: #000;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+}
+
+header .logo {
+    display: flex;        /* 使用 flex 布局 */
+    align-items: center;  /* 垂直居中对齐 */
+    justify-content: flex-start; /* 水平靠左对齐 */
+    padding-left: 10px;   /* 防止内容贴边 */
+    font-size: 16px;      /* 设置字体大小 */
+    color: white;         /* 设置文字颜色为白色 */
+}
+
+header .logo img {
+    width: 50px;         /* 设置图片的宽度 */
+    height: 50px;        /* 设置图片的高度 */
+    border-radius: 50%;  /* 圆形 logo */
+    margin-right: 10px;  /* 图片和文字之间的间距 */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 首页 - 主页内容 */
+main {
+    flex-grow: 1;  /* 让 main 内容区域填充剩余空间 */
+    padding: 20px;
+    text-align: center;
+}
+
+/* 视频网格 */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.video-item {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.video-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.video-item p {
+    margin-top: 10px;
+}
+
+/* 底部信息 */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}

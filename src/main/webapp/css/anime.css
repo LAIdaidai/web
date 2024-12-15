@@ -1,0 +1,191 @@
+/* 基本样式 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 更新字体 */
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* 头部样式 */
+header {
+    background-color: #333; /* 深色背景 */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 增加顶部阴影 */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+    color: #ff6347; /* 鼠标悬停时改变颜色 */
+}
+
+/* 主体部分 */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+/* 标题样式 */
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* 图片轮播效果 */
+.anime-carousel {
+    width: 80%; /* 设置轮播图片容器的宽度为页面的80% */
+    margin: 20px auto; /* 居中显示 */
+    overflow: hidden;
+    position: relative;
+    height: 400px; /* 设置一个固定高度 */
+}
+
+.carousel-container {
+    display: flex;
+    width: 400%;  /* 容器宽度为四张图片宽度总和 */
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 1s ease;  /* 平滑过渡效果 */
+    width: 100%;  /* 确保容器宽度占满父容器 */
+}
+
+.carousel-slide img {
+    width: 25%; /* 每张图片占容器的25% */
+    height: 100%; /* 高度填满 */
+    object-fit: cover; /* 确保图片按比例裁剪 */
+}
+
+
+/* 动漫展示区域 */
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.anime-item {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 增加过渡效果 */
+    cursor: pointer;
+}
+
+.anime-item:hover {
+    transform: scale(1.05); /* 鼠标悬停时放大 */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* 鼠标悬停时增加阴影效果 */
+}
+
+.anime-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.anime-info {
+    text-align: left;
+}
+
+.anime-info h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.anime-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+.anime-info a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.anime-info a:hover {
+    text-decoration: underline;
+}
+
+/* 翻页按钮样式 */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+/* 页脚样式 */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .anime-grid {
+        grid-template-columns: 1fr 1fr; /* 每行显示两列 */
+    }
+
+    .anime-item {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .anime-grid {
+        grid-template-columns: 1fr; /* 每行显示一列 */
+    }
+
+    header {
+        padding: 15px 0;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}

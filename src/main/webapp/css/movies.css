@@ -1,0 +1,83 @@
+/* 电影页面样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #343A40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.movie-item {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.movie-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.movie-item h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.movie-item p {
+    font-size: 14px;
+    color: #888;
+}
+
+.movie-item a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #343A40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
