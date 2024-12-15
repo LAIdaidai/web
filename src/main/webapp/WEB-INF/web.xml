@@ -22,10 +22,28 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.example.movieplaystation.RegisterServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CommentServlet</servlet-name>
+        <servlet-class>com.example.movieplaystation.CommentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CommentServlet</servlet-name>
+        <url-pattern>/CommentServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AverageRatingServlet</servlet-name>
+        <servlet-class>com.example.movieplaystation.AverageRatingServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AverageRatingServlet</servlet-name>
+        <url-pattern>/AverageRatingServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>

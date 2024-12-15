@@ -23,7 +23,8 @@ public class CommentServlet extends HttpServlet {
         try {
             boolean success = DbUtils.insertComment(videoId, username, commentText);
             if (success) {
-                response.getWriter().write("评论提交成功！");
+                // 评论提交成功后，重定向到视频页面并带上视频ID
+                response.sendRedirect("video.jsp?videoId=" + videoId);
             } else {
                 response.getWriter().write("评论提交失败！");
             }
@@ -32,6 +33,7 @@ public class CommentServlet extends HttpServlet {
             response.getWriter().write("数据库错误！");
         }
     }
+
 
     // 获取视频的所有评论
     public static List<Comment> getCommentsByVideoId(int videoId) {

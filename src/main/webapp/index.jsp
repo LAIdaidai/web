@@ -21,6 +21,20 @@
       <li><a href="profile.jsp">个人主页</a></li>
     </ul>
   </nav>
+  <div class="user-info">
+    <%
+      String username = (String) session.getAttribute("username");
+      if (username != null && !username.isEmpty()) {
+    %>
+    <span>欢迎，<%= username %>！</span>
+    <%
+    } else {
+    %>
+    <a href="login.jsp">登录</a>
+    <%
+      }
+    %>
+  </div>
 </header>
 
 <!-- 主页内容 -->

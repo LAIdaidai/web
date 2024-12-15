@@ -7,9 +7,9 @@ import java.sql.SQLException;
 
 public class DbUtils {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/web"; // 请替换为你的数据库 URL
-    private static final String USER = "laiyuci";  // 数据库用户名
-    private static final String PASSWORD = "1"; // 数据库密码
+    private static final String URL = "jdbc:mysql://localhost:3306/web";
+    private static final String USER = "laiyuci";
+    private static final String PASSWORD = "1";
 
     static {
         try {
@@ -26,17 +26,22 @@ public class DbUtils {
 
     // 插入评论的方法
     public static boolean insertComment(String videoId, String username, String content) {
-        String sql = "INSERT INTO comments (video_id, username, comment_text) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO comments (video_id, username, comment_text, comment_time) VALUES (?, ?, ?, NOW())";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, videoId);
+            stmt.setInt(1, Integer.parseInt(videoId));
             stmt.setString(2, username);
             stmt.setString(3, content);
+
             int rowsInserted = stmt.executeUpdate();
             return rowsInserted > 0;
 
         } catch (SQLException e) {
+            e.printStackTrace();  // 打印出详细的错误信息，便于调试
+            return false;
+        } catch (NumberFormatException e) {
+            // 处理 videoId 转换为 int 失败的情况
             e.printStackTrace();
             return false;
         }

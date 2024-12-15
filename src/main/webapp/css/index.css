@@ -1,6 +1,6 @@
 /* 通用样式 */
 html, body {
-    height: 100%;    /* 确保页面充满视口 */
+    height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -8,7 +8,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;  /* 确保页面至少高度为视口高度 */
+    min-height: 100vh;
 }
 
 header {
@@ -20,21 +20,48 @@ header {
 }
 
 header .logo {
-    display: flex;        /* 使用 flex 布局 */
-    align-items: center;  /* 垂直居中对齐 */
-    justify-content: flex-start; /* 水平靠左对齐 */
-    padding-left: 10px;   /* 防止内容贴边 */
-    font-size: 16px;      /* 设置字体大小 */
-    color: white;         /* 设置文字颜色为白色 */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    font-size: 16px;
+    color: white;
 }
 
 header .logo img {
-    width: 50px;         /* 设置图片的宽度 */
-    height: 50px;        /* 设置图片的高度 */
-    border-radius: 50%;  /* 圆形 logo */
-    margin-right: 10px;  /* 图片和文字之间的间距 */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
+/* 用户信息样式 */
+header .user-info {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+}
+
+header .user-info a {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+header .user-info a:hover {
+    text-decoration: underline;
+}
+
+header .user-info span {
+    font-size: 16px;
+}
+
+/* 导航菜单 */
 header nav ul {
     list-style: none;
     padding: 0;
@@ -57,7 +84,7 @@ header nav ul li a:hover {
 
 /* 首页 - 主页内容 */
 main {
-    flex-grow: 1;  /* 让 main 内容区域填充剩余空间 */
+    flex-grow: 1;
     padding: 20px;
     text-align: center;
 }

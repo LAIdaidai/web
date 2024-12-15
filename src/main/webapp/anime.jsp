@@ -14,7 +14,7 @@
 <!-- 头部导航栏 -->
 <header>
     <div class="logo">
-        <img src="images/index.jpg" alt="腾讯视频" />白嫖视频我最爽
+        <img src="images/index.jpg" alt="腾讯视频" />白嫖动漫我最爽
     </div>
     <nav>
         <ul>
@@ -24,6 +24,20 @@
             <li><a href="profile.jsp">个人主页</a></li>
         </ul>
     </nav>
+    <div class="user-info">
+        <%
+            String username = (String) session.getAttribute("username");
+            if (username != null && !username.isEmpty()) {
+        %>
+        <span>欢迎，<%= username %>！</span>
+        <%
+        } else {
+        %>
+        <a href="login.jsp">登录</a>
+        <%
+            }
+        %>
+    </div>
 </header>
 
 <!-- 动漫首页大图轮播 -->
