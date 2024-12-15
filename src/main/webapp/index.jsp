@@ -30,19 +30,19 @@
   <div class="video-grid">
     <div class="video-item">
       <img src="${pageContext.request.contextPath}/images/movie1.jpg" alt="电影1">
-      <a href="video.jsp?video=仙逆">仙逆</a>
+      <a href="video.jsp?videoId=1">仙逆</a>
     </div>
     <div class="video-item">
       <img src="${pageContext.request.contextPath}/images/movie2.jpg" alt="电影2">
-      <a href="video.jsp?video=剑来">剑来</a>
-    </div>
-    <div class="video-item">
-      <img src="${pageContext.request.contextPath}/images/movie3.jpg" alt="电影3">
-      <a href="video.jsp?video=吞噬星空剧场版 血洛大陆">吞噬星空剧场版 血洛大陆</a>
+      <a href="video.jsp?videoId=2">剑来</a>
     </div>
     <div class="video-item">
       <img src="${pageContext.request.contextPath}/images/movie4.jpg" alt="电影4">
-      <a href="video.jsp?video=斗破苍穹">斗破苍穹</a>
+      <a href="video.jsp?videoId=3">斗破苍穹</a>
+    </div>
+    <div class="video-item">
+      <img src="${pageContext.request.contextPath}/images/movie3.jpg" alt="电影3">
+      <a href="video.jsp?videoId=4">吞噬星空剧场版 血洛大陆</a>
     </div>
   </div>
 </main>

@@ -86,6 +86,7 @@ video {
     margin: 0 auto;
 }
 
+/* 评论框 */
 .comment-form {
     margin-bottom: 20px;
 }
@@ -96,6 +97,8 @@ video {
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
+    border: 1px solid #ddd;
+    resize: vertical; /* 允许垂直调整大小 */
 }
 
 .comment-form button {
@@ -112,6 +115,11 @@ video {
     background-color: #45a049;
 }
 
+.comment-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 /* 评论项 */
 .comment-item {
     background-color: #f9f9f9;
@@ -123,4 +131,26 @@ video {
 
 .comment-item p {
     margin: 0;
+}
+
+.comment-item small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+    font-size: 12px;
+}
+
+/* 评论区的响应式布局 */
+@media (max-width: 768px) {
+    .video-container {
+        padding: 10px;
+    }
+
+    .rating, .comments {
+        text-align: left;
+    }
+
+    .comment-form button {
+        width: 100%;
+    }
 }

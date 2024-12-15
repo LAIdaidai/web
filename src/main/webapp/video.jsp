@@ -1,4 +1,8 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.movieplaystation.Comment" %>
+<%@ page import="com.example.movieplaystation.CommentServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -17,9 +21,35 @@
 
 <main>
     <div class="video-container">
-        <h1 id="videoTitle">仙逆</h1> <!-- 视频标题 -->
+        <!-- 视频标题 -->
+        <h1 id="videoTitle">
+            <c:choose>
+                <c:when test="${param.videoId == '1'}">仙逆</c:when>
+                <c:when test="${param.videoId == '2'}">剑来</c:when>
+                <c:when test="${param.videoId == '3'}">斗破苍穹</c:when>
+                <c:when test="${param.videoId == '4'}">吞噬星空剧场版 血洛大陆</c:when>
+                <c:otherwise>视频</c:otherwise>
+            </c:choose>
+        </h1>
+
         <video id="videoPlayer" controls>
-            <source src="${pageContext.request.contextPath}/videos/仙逆.mp4" type="video/mp4">
+            <c:choose>
+                <c:when test="${param.videoId == '1'}">
+                    <source src="${pageContext.request.contextPath}/videos/仙逆.mp4" type="video/mp4">
+                </c:when>
+                <c:when test="${param.videoId == '2'}">
+                    <source src="${pageContext.request.contextPath}/videos/剑来.mp4" type="video/mp4">
+                </c:when>
+                <c:when test="${param.videoId == '3'}">
+                    <source src="${pageContext.request.contextPath}/videos/斗破苍穹.mp4" type="video/mp4">
+                </c:when>
+                <c:when test="${param.videoId == '4'}">
+                    <source src="${pageContext.request.contextPath}/videos/吞噬星空剧场版_血洛大陆.mp4" type="video/mp4">
+                </c:when>
+                <c:otherwise>
+                    <source src="${pageContext.request.contextPath}/videos/default.mp4" type="video/mp4">
+                </c:otherwise>
+            </c:choose>
             你的浏览器不支持播放此视频。
         </video>
 
@@ -46,6 +76,20 @@
 
             <div id="commentList">
                 <!-- 评论列表 -->
+                <%
+                    String videoId = request.getParameter("videoId");
+                    if (videoId != null) {
+                        List<Comment> comments = CommentServlet.getCommentsByVideoId(Integer.parseInt(videoId));
+                        for (Comment comment : comments) {
+                %>
+                <div class="comment-item">
+                    <p><strong><%= comment.getUsername() %>：</strong><%= comment.getCommentText() %></p>
+                    <p><small><%= comment.getFormattedTime() %></small></p>
+                </div>
+                <%
+                        }
+                    }
+                %>
             </div>
         </div>
     </div>
@@ -77,15 +121,22 @@
             return;
         }
 
-        const commentList = document.getElementById("commentList");
-        const newComment = document.createElement("div");
-        newComment.classList.add("comment-item");
-        newComment.innerHTML = "<p><strong>匿名：</strong>" + commentText + "</p>";
-        commentList.appendChild(newComment);
+        const videoId = "<%= request.getParameter("videoId") %>";
 
-        // 清空评论框
-        document.getElementById("commentText").value = "";
+        // 使用 AJAX 提交评论
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "CommentServlet", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert(xhr.responseText);  // 提示用户评论是否成功
+                // 清空评论框
+                document.getElementById("commentText").value = "";
+            }
+        };
+        xhr.send("videoId=" + videoId + "&commentText=" + encodeURIComponent(commentText));
     }
 </script>
+
 </body>
 </html>
