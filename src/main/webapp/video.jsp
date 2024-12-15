@@ -9,6 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>视频播放 - 白嫖动漫我最爽</title>
     <link rel="stylesheet" href="css/video.css">
     <link rel="stylesheet" href="css/index.css">
@@ -76,8 +77,12 @@
         const videoData = {
             '1': { title: '仙逆', src: '/videos/仙逆.mp4' },
             '2': { title: '剑来', src: '/videos/剑来.mp4' },
-            '3': { title: '斗破苍穹', src: '/videos/仙逆.mp4' },
-            '4': { title: '吞噬星空剧场版 血洛大陆', src: '/videos/剑来.mp4' }
+            '3': { title: '斗破苍穹', src: '/videos/斗破苍穹.mp4' },
+            '4': { title: '吞噬星空剧场版 血洛大陆', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
+            '5': { title: '逆转人生', src: '/videos/仙逆.mp4' },
+            '6': { title: '云边有个小卖部', src: '/videos/剑来.mp4' },
+            '7': { title: '孤注一掷', src: '/videos/仙逆.mp4' },
+            '8': { title: '流浪地球2', src: '/videos/剑来.mp4' }
         };
 
         // 根据 videoId 设置视频标题和视频源

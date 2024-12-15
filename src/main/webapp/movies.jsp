@@ -4,9 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>白嫖动漫我最爽-首页</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/movies.css">
+    <script>
+        function goToVideo(videoId) {
+            window.location.href = "video.jsp?videoId=" + videoId;
+        }
+    </script>
 </head>
 <body>
 <!-- 头部导航栏 -->
@@ -68,33 +74,25 @@
 
     <!-- 电影展示区域 -->
     <section class="movie-grid">
-        <div class="movie-item">
+        <div class="movie-item" onclick="goToVideo(5)">
             <img src="${pageContext.request.contextPath}/images/movie1.jpg" alt="电影1">
-            <h2>仙逆</h2>
-            <p>主演：某演员</p>
-            <p>评分：8.5</p>
-            <a href="movie-detail.jsp?id=1">查看详情</a>
+            <h2>逆行人生</h2>
+            <p>主演：徐一铚</p>
         </div>
-        <div class="movie-item">
+        <div class="movie-item" onclick="goToVideo(6)">
             <img src="${pageContext.request.contextPath}/images/movie2.jpg" alt="电影2">
-            <h2>剑来</h2>
-            <p>主演：某演员</p>
-            <p>评分：9.0</p>
-            <a href="movie-detail.jsp?id=2">查看详情</a>
+            <h2>云边有个小卖部</h2>
+            <p>主演：杨冉</p>
         </div>
-        <div class="movie-item">
+        <div class="movie-item" onclick="goToVideo(7)">
             <img src="${pageContext.request.contextPath}/images/movie3.jpg" alt="电影3">
-            <h2>吞噬星空</h2>
-            <p>主演：某演员</p>
-            <p>评分：7.8</p>
-            <a href="movie-detail.jsp?id=3">查看详情</a>
+            <h2>孤注一掷</h2>
+            <p>主演：樊怡成</p>
         </div>
-        <div class="movie-item">
+        <div class="movie-item" onclick="goToVideo(8)">
             <img src="${pageContext.request.contextPath}/images/movie4.jpg" alt="电影4">
-            <h2>斗破苍穹</h2>
-            <p>主演：某演员</p>
-            <p>评分：8.2</p>
-            <a href="movie-detail.jsp?id=4">查看详情</a>
+            <h2>流浪地球2</h2>
+            <p>主演：赖俞慈</p>
         </div>
         <!-- 更多电影项 -->
     </section>
