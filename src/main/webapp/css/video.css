@@ -8,7 +8,8 @@
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
-.comments form{
+
+.comments form {
     margin-bottom: 20px;
     background-color: #f9f9f9;
     padding: 20px;
@@ -16,7 +17,6 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
-
 
 .comments form:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 鼠标悬停时增加阴影 */
@@ -58,7 +58,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     display: inline-block;
-    width: 100%;
+    width: 100%; /* 保证按钮在小屏幕下宽度为100% */
     margin-top: 12px;
 }
 
@@ -100,16 +100,6 @@
     font-size: 13px;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .comment-form button {
-        width: 100%;
-    }
-
-    .comment-form textarea {
-        height: 120px;
-    }
-}
 /* 评分区 */
 .stars {
     display: flex;
@@ -133,4 +123,49 @@
 /* 鼠标悬停时的效果 */
 .star:hover {
     color: #FFD700; /* 鼠标悬停时显示金黄色 */
+}
+
+/* 视频播放器 */
+/* 视频播放器 */
+#videoPlayer {
+    width: 100%;          /* 视频宽度最大为父容器宽度 */
+    max-width: 800px;     /* 限制最大宽度为 800px */
+    max-height: 450px;    /* 限制最大高度为 450px，避免过大 */
+    height: auto;         /* 高度自动，根据宽度保持比例 */
+    object-fit: contain;  /* 保持视频比例，内容填充区域并不裁剪 */
+    margin: 0 auto;       /* 水平居中 */
+    display: block;       /* 让视频块级显示 */
+}
+
+/* 如果视频尺寸太小，进行等比例放大 */
+#videoPlayer.small {
+    object-fit: cover;    /* 填充整个容器区域，可能会裁剪 */
+    width: 100%;          /* 让视频宽度填充父容器 */
+    height: 100%;         /* 让视频高度填充父容器 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    /* 评论区及表单 */
+    .comments {
+        padding: 20px;  /* 小屏幕下减少padding */
+    }
+
+    .comments form {
+        padding: 15px;  /* 小屏幕下减少padding */
+    }
+
+    .comments form button {
+        padding: 12px 0; /* 按钮上下间距适配 */
+        font-size: 14px;  /* 按钮文字稍微减小 */
+    }
+
+    .comments form textarea {
+        height: 120px;  /* 小屏幕下缩小文本框高度 */
+    }
+
+    /* 视频区域 */
+    #videoPlayer {
+        max-width: 100%;    /* 确保视频在小屏幕下不超出屏幕 */
+    }
 }
