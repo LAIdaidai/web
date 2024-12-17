@@ -86,7 +86,7 @@ h1 {
 /* 动漫列表区域样式 */
 .anime-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(5, 1fr); /* 每行显示5个动画 */
     gap: 20px;
     padding: 10px;
 }
@@ -156,28 +156,12 @@ footer {
 /* 响应式设计 */
 @media (max-width: 768px) {
     .anime-grid {
-        grid-template-columns: 1fr 1fr; /* 每行显示两列 */
-    }
-
-    .anime-item {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 22px;
+        grid-template-columns: repeat(2, 1fr); /* 每行显示两列 */
     }
 }
 
 @media (max-width: 480px) {
     .anime-grid {
         grid-template-columns: 1fr; /* 每行显示一列 */
-    }
-
-    header {
-        padding: 15px 0;
-    }
-
-    h1 {
-        font-size: 20px;
     }
 }

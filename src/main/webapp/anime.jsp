@@ -28,6 +28,12 @@
             <li><a href="profile.jsp">个人主页</a></li>
         </ul>
     </nav>
+    <div class="search-box">
+        <form action="SearchServlet" method="POST">
+            <input type="text" name="searchQuery" placeholder="搜索动漫、电影..." />
+            <button type="submit">搜索</button>
+        </form>
+    </div>
     <div class="user-info">
         <%
             String username = (String) session.getAttribute("username");

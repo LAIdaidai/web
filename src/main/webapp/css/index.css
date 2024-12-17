@@ -81,6 +81,45 @@ header nav ul li a {
 header nav ul li a:hover {
     text-decoration: underline;
 }
+/* 搜索框样式 */
+.search-box {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    right: 200px;
+}
+
+.search-box input[type="text"] {
+    width: 200px;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #222;
+    color: white;
+}
+
+.search-box input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+/* 搜索按钮样式 */
+.search-box button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: #0056b3;
+}
 
 /* 首页 - 主页内容 */
 main {
