@@ -1,11 +1,13 @@
-package com.example.movieplaystation;
+package com.example.movieplaystation.Rate;
 
+import com.example.movieplaystation.Comments.InsertComment;
+import com.example.movieplaystation.JDBCUtils;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.*;
 import java.sql.*;
-import java.util.*;
+
 //计算平均分
 @WebServlet("/RateServlet")
 public class RateServlet extends HttpServlet {
@@ -16,7 +18,7 @@ public class RateServlet extends HttpServlet {
         int rating = Integer.parseInt(request.getParameter("rating"));
 
         // 存储评分到数据库
-        try (Connection conn = DbUtils.getConnection()) {
+        try (Connection conn = JDBCUtils.getConnection()) {
             String sql = "INSERT INTO ratings (video_id, username, rating) VALUES (?, ?, ?)";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setInt(1, Integer.parseInt(videoId));
@@ -36,7 +38,7 @@ public class RateServlet extends HttpServlet {
     }
 
     private void updateAverageRating(int videoId) throws SQLException {
-        try (Connection conn = DbUtils.getConnection()) {
+        try (Connection conn = JDBCUtils.getConnection()) {
             // 获取该视频的所有评分
             String sql = "SELECT AVG(rating) FROM ratings WHERE video_id = ?";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {

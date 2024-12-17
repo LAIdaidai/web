@@ -11,7 +11,7 @@
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.example.movieplaystation.LoginServlet</servlet-class>
+        <servlet-class>com.example.movieplaystation.login.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -20,7 +20,7 @@
 
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.example.movieplaystation.RegisterServlet</servlet-class>
+        <servlet-class>com.example.movieplaystation.login.RegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
@@ -29,7 +29,7 @@
 
     <servlet>
         <servlet-name>CommentServlet</servlet-name>
-        <servlet-class>com.example.movieplaystation.CommentServlet</servlet-class>
+        <servlet-class>com.example.movieplaystation.Comments.ShowCommentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CommentServlet</servlet-name>
@@ -38,7 +38,7 @@
 
     <servlet>
         <servlet-name>AverageRatingServlet</servlet-name>
-        <servlet-class>com.example.movieplaystation.AverageRatingServlet</servlet-class>
+        <servlet-class>com.example.movieplaystation.Rate.AverageRatingServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

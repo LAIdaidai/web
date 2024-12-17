@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>白嫖动漫我最爽-首页</title>
   <link rel="stylesheet" href="css/index.css">
+  <link rel="icon" href="${pageContext.request.contextPath}/images/index.jpg" type="image/jpg">
   <script>
     function goToVideo(videoId) {
       window.location.href = "video.jsp?videoId=" + videoId;

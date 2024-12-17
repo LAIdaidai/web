@@ -1,4 +1,4 @@
-package com.example.movieplaystation;
+package com.example.movieplaystation.Comments;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -6,7 +6,7 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 
-public class CommentServlet extends HttpServlet {
+public class ShowCommentServlet extends HttpServlet {
 
     // 处理评论提交
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,7 +21,7 @@ public class CommentServlet extends HttpServlet {
 
         // 插入评论到数据库
         try {
-            boolean success = DbUtils.insertComment(videoId, username, commentText);
+            boolean success = InsertComment.insertComment(videoId, username, commentText);
             if (success) {
                 // 评论提交成功后，重定向到视频页面并带上视频ID
                 response.sendRedirect("video.jsp?videoId=" + videoId);
@@ -38,7 +38,7 @@ public class CommentServlet extends HttpServlet {
     // 获取视频的所有评论
     public static List<Comment> getCommentsByVideoId(int videoId) {
         List<Comment> commentList = new ArrayList<>();
-        try (Connection conn = DbUtils.getConnection()) {
+        try (Connection conn = InsertComment.getConnection()) {
             String sql = "SELECT username, comment_text, comment_time FROM comments WHERE video_id = ? ORDER BY comment_time DESC";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setInt(1, videoId);  // 使用视频ID查询评论

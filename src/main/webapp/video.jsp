@@ -1,7 +1,7 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.example.movieplaystation.Comment" %>
-<%@ page import="com.example.movieplaystation.CommentServlet" %>
-<%@ page import="com.example.movieplaystation.AverageRatingServlet" %>
+<%@ page import="com.example.movieplaystation.Comments.Comment" %>
+<%@ page import="com.example.movieplaystation.Comments.ShowCommentServlet" %>
+<%@ page import="com.example.movieplaystation.Rate.AverageRatingServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>视频播放 - 白嫖动漫我最爽</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/images/index.jpg" type="image/jpg">
     <link rel="stylesheet" href="css/video.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -80,12 +81,17 @@
             '4': { title: '吞噬星空剧场版 血洛大陆', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
             '5': { title: '蜡笔小新：风起云涌的丛林冒险', src: '/videos/仙逆.mp4' },
             '6': { title: '蜡笔小新剧场版：新婚旅行风暴～夺回广志大作战～', src: '/videos/剑来.mp4' },
-            '7': { title: '蜡笔小新：幽灵忍者珍风传', src: '/videos/仙逆.mp4' },
+            '7': { title: '蜡笔小新：幽灵忍者珍风传', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
             '8': { title: '蜡笔小新：我的超时空新娘', src: '/videos/剑来.mp4' },
-            '9': { title: '完美世界', src: '/videos/剑来.mp4' },
-            '10': { title: '诛仙', src: '/videos/剑来.mp4' }
+            '9': { title: '完美世界', src: '/videos/斗破苍穹.mp4' },
+            '10': { title: '诛仙', src: '/videos/斗破苍穹.mp4' },
+            '11': { title: '百变小樱', src: '/videos/剑来.mp4' },
+            '12': { title: '寻梦环游记', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
+            '13': { title: '海底总动员', src: '/videos/斗破苍穹.mp4' },
+            '14': { title: '玩具总动员', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
+            '15': { title: '疯狂元素城', src: '/videos/剑来.mp4' },
+            '17': { title: '赛车总动员', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' }
         };
-
         // 根据 videoId 设置视频标题和视频源
         if (videoData[videoId]) {
             videoTitle.textContent = videoData[videoId].title;
@@ -94,7 +100,6 @@
             videoTitle.textContent = '视频';
             videoSource.src = '/videos/default.mp4';  // 默认视频
         }
-
         // 刷新视频源
         document.getElementById('videoPlayer').load();
     </script>
@@ -127,7 +132,7 @@
                 <!-- 评论列表 -->
                 <%
                     if (videoId != null) {
-                        List<Comment> comments = CommentServlet.getCommentsByVideoId(Integer.parseInt(videoId));
+                        List<Comment> comments = ShowCommentServlet.getCommentsByVideoId(Integer.parseInt(videoId));
                         for (Comment comment : comments) {
                 %>
                 <div class="comment-item">

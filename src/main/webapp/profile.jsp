@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>个人主页</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/images/index.jpg" type="image/jpg">
     <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>

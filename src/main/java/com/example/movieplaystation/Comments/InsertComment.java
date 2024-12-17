@@ -1,11 +1,11 @@
-package com.example.movieplaystation;
+package com.example.movieplaystation.Comments;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DbUtils {
+public class InsertComment {
 
     private static final String URL = "jdbc:mysql://localhost:3306/web";
     private static final String USER = "laiyuci";

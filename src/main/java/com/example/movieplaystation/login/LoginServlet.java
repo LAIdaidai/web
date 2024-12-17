@@ -1,4 +1,4 @@
-package com.example.movieplaystation;
+package com.example.movieplaystation.login;
 
 import java.io.*;
 import jakarta.servlet.*;

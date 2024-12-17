@@ -4,6 +4,7 @@ body {
     background-color: #f4f4f4;
 }
 
+/* 头部样式 */
 header {
     background-color: #343A40;
     color: white;
@@ -31,52 +32,59 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* 主体部分 */
 main {
     padding: 20px;
 }
 
-.filters {
-    margin-bottom: 20px;
-}
-
+/* 电影格 */
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);  /* 4列布局 */
     gap: 20px;
 }
 
+/* 电影项 */
 .movie-item {
     background-color: #fff;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* 悬浮时的效果 */
+.movie-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 电影图片 */
 .movie-item img {
     width: 100%;
-    height: 500px;  /* 固定高度，确保图片统一显示 */
+    height: auto;
     object-fit: cover;  /* 保证图片充满容器且不失真 */
     border-radius: 5px;
 }
 
+/* 电影标题 */
 .movie-item h2 {
     font-size: 18px;
     margin: 10px 0;
 }
 
+/* 电影描述 */
 .movie-item p {
     font-size: 14px;
     color: #888;
 }
 
-.movie-item a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-
+/* 页脚样式 */
 footer {
     background-color: #343A40;
     color: white;

@@ -1,4 +1,4 @@
-package com.example.movieplaystation;
+package com.example.movieplaystation.Comments;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>白嫖动漫我最爽-首页</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/images/index.jpg" type="image/jpg">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/movies.css">
     <script>
@@ -47,29 +48,6 @@
 <!-- 电影内容区域 -->
 <main>
     <h1>热门电影</h1>
-
-    <!-- 电影筛选功能（可选）-->
-    <section class="filters">
-        <form action="movies.jsp" method="get">
-            <label for="genre">选择电影类型：</label>
-            <select id="genre" name="genre">
-                <option value="all">全部</option>
-                <option value="action">动作</option>
-                <option value="comedy">喜剧</option>
-                <option value="drama">剧情</option>
-                <option value="horror">恐怖</option>
-            </select>
-
-            <label for="sort">排序：</label>
-            <select id="sort" name="sort">
-                <option value="newest">最新上映</option>
-                <option value="rating">评分高低</option>
-                <option value="popularity">人气</option>
-            </select>
-
-            <button type="submit">筛选</button>
-        </form>
-    </section>
 
     <!-- 电影展示区域 -->
     <section class="movie-grid">

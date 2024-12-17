@@ -97,6 +97,7 @@ main {
     margin-top: 20px;
 }
 
+/* 视频项 */
 .video-item {
     background-color: #fff;
     padding: 10px;
@@ -106,15 +107,25 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
 }
 
+/* 悬浮时的放大效果 */
+.video-item:hover {
+    transform: scale(1.05); /* 放大1.05倍 */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* 增强阴影效果 */
+}
+
+/* 视频图片 */
 .video-item img {
     width: 100%;
-    height: 500px;
+    height: auto;
     object-fit: cover;
     border-radius: 5px;
 }
 
+/* 文字描述 */
 .video-item p {
     margin-top: 10px;
 }

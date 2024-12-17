@@ -1,4 +1,4 @@
-package com.example.movieplaystation;
+package com.example.movieplaystation.Rate;
 
 import java.sql.*;
 
