@@ -55,7 +55,8 @@ main {
 
 .movie-item img {
     width: 100%;
-    height: auto;
+    height: 500px;  /* 固定高度，确保图片统一显示 */
+    object-fit: cover;  /* 保证图片充满容器且不失真 */
     border-radius: 5px;
 }
 
@@ -74,6 +75,7 @@ main {
     color: #007bff;
     font-weight: bold;
 }
+
 
 footer {
     background-color: #343A40;

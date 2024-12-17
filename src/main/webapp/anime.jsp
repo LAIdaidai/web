@@ -7,8 +7,11 @@
     <title>动漫</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/anime.css">
-
-    <script src="js/swiper-bundle.min.js"></script>
+    <script>
+        function goToVideo(videoId) {
+            window.location.href = "video.jsp?videoId=" + videoId;
+        }
+    </script>
 </head>
 <body>
 <!-- 头部导航栏 -->
@@ -40,88 +43,57 @@
     </div>
 </header>
 
-<!-- 动漫首页大图轮播 -->
-<section class="anime-carousel">
-    <div class="carousel-container">
-        <div class="carousel-slide">
-            <img src="${pageContext.request.contextPath}/images/movie1.jpg" alt="动漫1">
-            <img src="${pageContext.request.contextPath}/images/movie2.jpg" alt="动漫2">
-            <img src="${pageContext.request.contextPath}/images/movie3.jpg" alt="动漫3">
-            <img src="${pageContext.request.contextPath}/images/movie4.jpg" alt="动漫4">
-        </div>
-    </div>
-    <button class="carousel-prev">&#10094;</button>
-    <button class="carousel-next">&#10095;</button>
-</section>
-
-
 <!-- 动漫内容区域 -->
 <main>
     <h1>热门动漫</h1>
 
     <!-- 动漫展示区域 -->
-    <section class="anime-grid">
-        <div class="anime-item">
-            <img src="${pageContext.request.contextPath}/images/movie1.jpg" alt="鬼灭之刃">
+    <section class="anime-grid" >
+        <div class="anime-item" onclick="goToVideo(1)">
+            <img src="${pageContext.request.contextPath}/images/仙逆.jpg" alt="鬼灭之刃">
             <div class="anime-info">
-                <h2>鬼灭之刃</h2>
-                <p>导演：外崎春雄</p>
-                <p>评分：9.5</p>
-                <a href="anime-detail.jsp?id=1">查看详情</a>
-            </div>
-        </div>
-
-        <div class="anime-item">
-            <img src="${pageContext.request.contextPath}/images/movie2.jpg" alt="进击的巨人">
-            <div class="anime-info">
-                <h2>进击的巨人</h2>
-                <p>导演：荒木哲郎</p>
-                <p>评分：9.0</p>
-                <a href="anime-detail.jsp?id=2">查看详情</a>
-            </div>
-        </div>
-
-        <div class="anime-item">
-            <img src="${pageContext.request.contextPath}/images/movie3.jpg" alt="我的英雄学院">
-            <div class="anime-info">
-                <h2>我的英雄学院</h2>
-                <p>导演：长崎健司</p>
+                <h2>仙逆</h2>
+                <p>导演：李富源</p>
                 <p>评分：8.8</p>
-                <a href="anime-detail.jsp?id=3">查看详情</a>
             </div>
         </div>
 
-        <div class="anime-item">
-            <img src="${pageContext.request.contextPath}/images/movie4.jpg" alt="名侦探柯南">
+        <div class="anime-item" onclick="goToVideo(9)">
+            <img src="${pageContext.request.contextPath}/images/完美世界.png" alt="完美世界">
             <div class="anime-info">
-                <h2>名侦探柯南</h2>
-                <p>导演：山本泰一郎</p>
-                <p>评分：8.4</p>
-                <a href="anime-detail.jsp?id=4">查看详情</a>
+                <h2>完美世界</h2>
+                <p>导演：周鹏</p>
+                <p>评分：8.5</p>
             </div>
         </div>
 
-        <div class="anime-item">
-            <img src="${pageContext.request.contextPath}/images/movie1.jpg" alt="火影忍者">
+        <div class="anime-item" onclick="goToVideo(10)">
+            <img src="${pageContext.request.contextPath}/images/诛仙.png" alt="诛仙">
             <div class="anime-info">
-                <h2>火影忍者</h2>
-                <p>导演：岸本齐史</p>
-                <p>评分：9.3</p>
-                <a href="anime-detail.jsp?id=5">查看详情</a>
-            </div>
-        </div>
-
-        <div class="anime-item">
-            <img src="${pageContext.request.contextPath}/images/movie2.jpg" alt="海贼王">
-            <div class="anime-info">
-                <h2>海贼王</h2>
-                <p>导演：尾田荣一郎</p>
+                <h2>诛仙</h2>
+                <p>导演：林楠</p>
                 <p>评分：8.7</p>
-                <a href="anime-detail.jsp?id=6">查看详情</a>
             </div>
         </div>
 
-        <!-- 更多动漫项... -->
+        <div class="anime-item" onclick="goToVideo(4)">
+            <img src="${pageContext.request.contextPath}/images/吞噬星空剧场版%20血洛大陆.jpg" alt="吞噬星空剧场版 血洛大陆">
+            <div class="anime-info">
+                <h2>吞噬星空：血洛大陆</h2>
+                <p>导演：沈浩</p>
+                <p>评分：8.4</p>
+            </div>
+        </div>
+
+        <div class="anime-item" onclick="goToVideo(3)">
+            <img src="${pageContext.request.contextPath}/images/斗破苍穹.png" alt="斗破苍穹">
+            <div class="anime-info">
+                <h2>斗破苍穹</h2>
+                <p>导演：钟琰</p>
+                <p>评分：8.6</p>
+            </div>
+        </div>
+
     </section>
 </main>
 
@@ -129,8 +101,6 @@
 <footer>
     <p>&copy; 2024 腾讯视频。版权所有。</p>
 </footer>
-
-<script src="js/swiper-bundle.min.js"></script>
 <script src="js/anime.js"></script>
 </body>
 </html>

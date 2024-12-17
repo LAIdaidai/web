@@ -49,19 +49,19 @@
   <p>这里是电影、电视剧、动漫的播放平台。请选择你感兴趣的内容。</p>
   <div class="video-grid">
     <div class="video-item" onclick="goToVideo(1)">
-      <img src="${pageContext.request.contextPath}/images/movie1.jpg" alt="电影1">
+      <img src="${pageContext.request.contextPath}/images/仙逆.jpg" alt="电影1">
       <p>仙逆</p>
     </div>
     <div class="video-item" onclick="goToVideo(2)">
-      <img src="${pageContext.request.contextPath}/images/movie2.jpg" alt="电影2">
+      <img src="${pageContext.request.contextPath}/images/剑来.jpg" alt="电影2">
       <p>剑来</p>
     </div>
     <div class="video-item" onclick="goToVideo(3)">
-      <img src="${pageContext.request.contextPath}/images/movie4.jpg" alt="电影4">
+      <img src="${pageContext.request.contextPath}/images/斗破苍穹.png" alt="电影4">
       <p>斗破苍穹</p>
     </div>
     <div class="video-item" onclick="goToVideo(4)">
-      <img src="${pageContext.request.contextPath}/images/movie3.jpg" alt="电影3">
+      <img src="${pageContext.request.contextPath}/images/吞噬星空剧场版%20血洛大陆.jpg" alt="电影3">
       <p>吞噬星空剧场版 血洛大陆</p>
     </div>
   </div>

@@ -78,10 +78,12 @@
             '2': { title: '剑来', src: '/videos/剑来.mp4' },
             '3': { title: '斗破苍穹', src: '/videos/斗破苍穹.mp4' },
             '4': { title: '吞噬星空剧场版 血洛大陆', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
-            '5': { title: '逆转人生', src: '/videos/仙逆.mp4' },
-            '6': { title: '云边有个小卖部', src: '/videos/剑来.mp4' },
-            '7': { title: '孤注一掷', src: '/videos/仙逆.mp4' },
-            '8': { title: '流浪地球2', src: '/videos/剑来.mp4' }
+            '5': { title: '蜡笔小新：风起云涌的丛林冒险', src: '/videos/仙逆.mp4' },
+            '6': { title: '蜡笔小新剧场版：新婚旅行风暴～夺回广志大作战～', src: '/videos/剑来.mp4' },
+            '7': { title: '蜡笔小新：幽灵忍者珍风传', src: '/videos/仙逆.mp4' },
+            '8': { title: '蜡笔小新：我的超时空新娘', src: '/videos/剑来.mp4' },
+            '9': { title: '完美世界', src: '/videos/剑来.mp4' },
+            '10': { title: '诛仙', src: '/videos/剑来.mp4' }
         };
 
         // 根据 videoId 设置视频标题和视频源

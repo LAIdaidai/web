@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
                 request.getRequestDispatcher("register.jsp").forward(request, response);
             } else {
                 // 否则，将用户信息插入到数据库
-                String insertSQL = "INSERT INTO users (username, password) VALUES (?, ?)";
+                String insertSQL = "INSERT INTO users (username, password,register_time) VALUES (?, ?,NOw())";
                 preparedStatement = connection.prepareStatement(insertSQL);
                 preparedStatement.setString(1, username);
                 preparedStatement.setString(2, password);

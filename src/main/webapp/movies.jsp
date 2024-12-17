@@ -74,23 +74,23 @@
     <!-- 电影展示区域 -->
     <section class="movie-grid">
         <div class="movie-item" onclick="goToVideo(5)">
-            <img src="${pageContext.request.contextPath}/images/movie1.jpg" alt="电影1">
-            <h2>逆行人生</h2>
+            <img src="${pageContext.request.contextPath}/images/蜡笔小新：风起云涌的丛林冒险.png" alt="电影1">
+            <h2>蜡笔小新：风起云涌的丛林冒险</h2>
             <p>主演：徐一铚</p>
         </div>
         <div class="movie-item" onclick="goToVideo(6)">
-            <img src="${pageContext.request.contextPath}/images/movie2.jpg" alt="电影2">
-            <h2>云边有个小卖部</h2>
+            <img src="${pageContext.request.contextPath}/images/蜡笔小新剧场版：新婚旅行风暴～夺回广志大作战～.png" alt="电影2">
+            <h2>蜡笔小新剧场版：新婚旅行风暴～夺回广志大作战～</h2>
             <p>主演：杨冉</p>
         </div>
         <div class="movie-item" onclick="goToVideo(7)">
-            <img src="${pageContext.request.contextPath}/images/movie3.jpg" alt="电影3">
-            <h2>孤注一掷</h2>
+            <img src="${pageContext.request.contextPath}/images/蜡笔小新：幽灵忍者珍风传.png" alt="电影3">
+            <h2>蜡笔小新：幽灵忍者珍风传</h2>
             <p>主演：樊怡成</p>
         </div>
         <div class="movie-item" onclick="goToVideo(8)">
-            <img src="${pageContext.request.contextPath}/images/movie4.jpg" alt="电影4">
-            <h2>流浪地球2</h2>
+            <img src="${pageContext.request.contextPath}/images/蜡笔小新：我的超时空新娘.png" alt="电影4">
+            <h2>蜡笔小新：我的超时空新娘</h2>
             <p>主演：赖俞慈</p>
         </div>
         <!-- 更多电影项 -->
