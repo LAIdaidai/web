@@ -5,6 +5,7 @@ import jakarta.servlet.http.*;
 import java.io.*;
 import java.sql.*;
 import java.util.*;
+import com.example.movieplaystation.JDBCUtils;
 
 public class ShowCommentServlet extends HttpServlet {
 
@@ -38,7 +39,7 @@ public class ShowCommentServlet extends HttpServlet {
     // 获取视频的所有评论
     public static List<Comment> getCommentsByVideoId(int videoId) {
         List<Comment> commentList = new ArrayList<>();
-        try (Connection conn = InsertComment.getConnection()) {
+        try (Connection conn = JDBCUtils.getConnection()) {
             String sql = "SELECT username, comment_text, comment_time FROM comments WHERE video_id = ? ORDER BY comment_time DESC";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setInt(1, videoId);  // 使用视频ID查询评论

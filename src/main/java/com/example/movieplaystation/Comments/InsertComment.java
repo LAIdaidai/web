@@ -4,12 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import com.example.movieplaystation.JDBCUtils;
 
 public class InsertComment {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/web";
-    private static final String USER = "laiyuci";
-    private static final String PASSWORD = "1";
 
     static {
         try {
@@ -20,14 +18,12 @@ public class InsertComment {
         }
     }
 
-    public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
-    }
+
 
     // 插入评论的方法
     public static boolean insertComment(String videoId, String username, String content) {
         String sql = "INSERT INTO comments (video_id, username, comment_text, comment_time) VALUES (?, ?, ?, NOW())";
-        try (Connection conn = getConnection();
+        try (Connection conn = JDBCUtils.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, Integer.parseInt(videoId));

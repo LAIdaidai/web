@@ -4,7 +4,7 @@ import java.io.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import java.sql.*;
-
+import com.example.movieplaystation.JDBCUtils;
 public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 获取前端提交的用户名、密码和确认密码
@@ -12,10 +12,6 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmPassword");
 
-        // 数据库连接信息
-        String dbURL = "jdbc:mysql://localhost:3306/web";
-        String dbUsername = "laiyuci";
-        String dbPassword = "1";
 
         // 数据库连接对象
         Connection connection = null;
@@ -31,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
         try {
             // 连接到数据库
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
+            connection = JDBCUtils.getConnection();
 
             // SQL 查询，检查用户名是否已存在
             String checkUserSQL = "SELECT * FROM users WHERE username = ?";

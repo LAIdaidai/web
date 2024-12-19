@@ -1,6 +1,7 @@
 package com.example.movieplaystation.Rate;
 
 import java.sql.*;
+import com.example.movieplaystation.JDBCUtils;
 
 public class AverageRatingServlet {
 
@@ -13,10 +14,7 @@ public class AverageRatingServlet {
 
         try {
             // 数据库连接
-            String dbURL = "jdbc:mysql://localhost:3306/web";
-            String dbUsername = "laiyuci";
-            String dbPassword = "1";
-            conn = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
+            conn = JDBCUtils.getConnection();
 
             // 查询视频的平均评分
             String sql = "SELECT average_rating FROM videos WHERE id = ?";

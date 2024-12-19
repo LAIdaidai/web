@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.example.movieplaystation.JDBCUtils;
 
 @WebServlet("/SearchServlet")
 public class SearchServlet extends HttpServlet {
@@ -25,7 +26,7 @@ public class SearchServlet extends HttpServlet {
 
         try {
             // 假设你已经在 web.xml 配置了数据库连接
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/web", "laiyuci", "1");
+            connection = JDBCUtils.getConnection();
 
             // 查询视频表，根据搜索关键词模糊查找视频标题
             String sql = "SELECT * FROM videos WHERE title LIKE ?";

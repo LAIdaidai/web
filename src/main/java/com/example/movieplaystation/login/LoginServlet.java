@@ -4,6 +4,7 @@ import java.io.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import java.sql.*;
+import com.example.movieplaystation.JDBCUtils;
 
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -11,10 +12,7 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // 数据库连接信息
-        String dbURL = "jdbc:mysql://localhost:3306/webs";
-        String dbUsername = "xukeli";
-        String dbPassword = "root";
+
 
         // 数据库验证逻辑
         Connection connection = null;
@@ -24,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         try {
             // 连接到数据库
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
+            connection = JDBCUtils.getConnection();
 
             // SQL 查询语句，检查用户是否存在且密码是否正确
             String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
