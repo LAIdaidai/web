@@ -6,7 +6,7 @@ public class JDBCUtils {
 
     public static Connection getConnection() throws SQLException {
         // 使用连接池或直接连接数据库的代码
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/web", "laiyuci", "1");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/webs", "xukeli", "root");
     }
 
     public static void close(ResultSet rs, Statement stmt, Connection conn) {

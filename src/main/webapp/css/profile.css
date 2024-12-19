@@ -124,6 +124,9 @@ footer {
     text-align: center;
     padding: 15px 0;
     font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /* 响应式设计 */

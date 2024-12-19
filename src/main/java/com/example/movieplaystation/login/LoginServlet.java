@@ -12,9 +12,9 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         // 数据库连接信息
-        String dbURL = "jdbc:mysql://localhost:3306/web";
-        String dbUsername = "laiyuci";
-        String dbPassword = "1";
+        String dbURL = "jdbc:mysql://localhost:3306/webs";
+        String dbUsername = "xukeli";
+        String dbPassword = "root";
 
         // 数据库验证逻辑
         Connection connection = null;
