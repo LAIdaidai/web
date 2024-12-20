@@ -1,4 +1,7 @@
+<%@ page import="com.example.movieplaystation.Video" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -23,7 +26,7 @@
     <nav>
         <ul>
             <li><a href="index.jsp">首页</a></li>
-            <li><a href="movies.jsp">电影</a></li>
+            <li><a href="movieList">电影</a></li>
             <li><a href="anime.jsp">动漫</a></li>
             <li><a href="profile.jsp">个人主页</a></li>
         </ul>
@@ -55,29 +58,32 @@
     <h1>热门电影</h1>
 
     <!-- 电影展示区域 -->
-    <section class="movie-grid">
-        <div class="movie-item" onclick="goToVideo(5)">
-            <img src="${pageContext.request.contextPath}/images/蜡笔小新：风起云涌的丛林冒险.png" alt="电影1">
-            <h2>蜡笔小新：风起云涌的丛林冒险</h2>
-            <p>主演：徐一铚</p>
+    <div class="video-grid">
+        <%
+            // 获取 Servlet 中传递的 videoList
+            List<Video> videoList = (List<Video>) request.getAttribute("videoList");
+
+            // 判断 videoList 是否为空
+            if (videoList != null && !videoList.isEmpty()) {
+                // 遍历 videoList 显示每一部视频
+                for (Video video : videoList) {
+        %>
+        <div class="video-item" onclick="window.location.href='video.jsp?videoId=<%= video.getId() %>'">
+            <!-- 显示视频封面 -->
+            <img src="<%= video.getVideoPath() %>" alt="<%= video.getTitle() %>">
+            <!-- 显示视频标题 -->
+            <p><%= video.getTitle() %></p>
         </div>
-        <div class="movie-item" onclick="goToVideo(6)">
-            <img src="${pageContext.request.contextPath}/images/蜡笔小新剧场版：新婚旅行风暴～夺回广志大作战～.png" alt="电影2">
-            <h2>蜡笔小新剧场版：新婚旅行风暴～夺回广志大作战～</h2>
-            <p>主演：杨冉</p>
-        </div>
-        <div class="movie-item" onclick="goToVideo(7)">
-            <img src="${pageContext.request.contextPath}/images/蜡笔小新：幽灵忍者珍风传.png" alt="电影3">
-            <h2>蜡笔小新：幽灵忍者珍风传</h2>
-            <p>主演：樊怡成</p>
-        </div>
-        <div class="movie-item" onclick="goToVideo(8)">
-            <img src="${pageContext.request.contextPath}/images/蜡笔小新：我的超时空新娘.png" alt="电影4">
-            <h2>蜡笔小新：我的超时空新娘</h2>
-            <p>主演：赖俞慈</p>
-        </div>
-        <!-- 更多电影项 -->
-    </section>
+        <%
+            }
+        } else {
+        %>
+        <!-- 如果没有找到相关视频 -->
+        <p>未找到相关视频。</p>
+        <%
+            }
+        %>
+    </div>
 </main>
 
 <!-- 底部信息 -->
