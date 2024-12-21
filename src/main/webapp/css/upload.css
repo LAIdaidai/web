@@ -1,0 +1,81 @@
+/* 全局样式 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* 页面垂直居中 */
+}
+
+/* 上传表单容器 */
+.upload-form-container {
+    width: 100%;
+    max-width: 500px; /* 表单最大宽度 */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* 标题和内容居中 */
+    margin-bottom: 20px; /* 和版权声明的间距 */
+}
+
+/* 标题样式 */
+.upload-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* 标签和输入框样式 */
+.upload-form-container label {
+    display: block; /* 每个标签占一行 */
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: left; /* 标签靠左对齐 */
+}
+
+.upload-form-container input[type="text"],
+.upload-form-container select,
+.upload-form-container input[type="file"] {
+    width: 100%; /* 输入框宽度100% */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px; /* 输入框下方的间距 */
+}
+
+/* 按钮样式 */
+.upload-form-container button {
+    margin: 5px;
+    width: 100%; /* 按钮宽度与输入框一致 */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.upload-form-container button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* 鼠标悬浮时放大 */
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+}

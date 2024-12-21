@@ -21,7 +21,7 @@
     <nav>
         <ul>
             <li><a href="index.jsp">首页</a></li>
-            <li><a href="moviesList">电影</a></li>
+            <li><a href="movieList">电影</a></li>
             <li><a href="FilteredAnimeServlet">动漫</a></li>
             <li><a href="profile.jsp">个人主页</a></li>
         </ul>
@@ -76,7 +76,8 @@
         <c:choose>
             <c:when test="${not empty animeList}">
                 <c:forEach var="anime" items="${animeList}">
-                    <div class="anime-item">
+                    <!-- 添加 onclick 跳转 -->
+                    <div class="anime-item" onclick="location.href='video.jsp?videoId=${anime.id}'" style="cursor: pointer;">
                         <img src="${anime.coverImagePath}" alt="${anime.title}">
                         <p>${anime.title}</p>
                     </div>
@@ -87,6 +88,7 @@
             </c:otherwise>
         </c:choose>
     </div>
+
 </main>
 
 <footer>

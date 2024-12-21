@@ -3,6 +3,8 @@
 <%@ page import="com.example.movieplaystation.Comments.ShowCommentServlet" %>
 <%@ page import="com.example.movieplaystation.Rate.AverageRatingServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.example.movieplaystation.VideoService" %>
+<%@ page import="com.example.movieplaystation.Video" %>
 
 <!DOCTYPE html>
 <html lang="zh">
@@ -64,44 +66,69 @@
     </video>
 
     <script>
-        // 获取 URL 中的 videoId 参数
+        const videoData = {};
+        <%
+            List<Video> videoList = VideoService.getAllVideos();
+            for (Video video : videoList) {
+        %>
+        videoData['<%= video.getId() %>'] = {
+            title: '<%= video.getTitle() %>',
+            src: '<%= video.getVideoPath() %>'
+        };
+        <%
+            }
+        %>
+
+
+        // 获取页面元素
         const urlParams = new URLSearchParams(window.location.search);
         const videoId = urlParams.get('videoId');
 
         // 获取页面元素
         const videoTitle = document.getElementById('videoTitle');
         const videoSource = document.getElementById('videoSource');
-        const averageRatingElement = document.getElementById('averageRating'); // 用于显示评分的元素
+        const videoPlayer = document.getElementById('videoPlayer');
 
-        // 定义视频数据
-        const videoData = {
-            '1': { title: '仙逆', src: '/videos/仙逆.mp4' },
-            '2': { title: '剑来', src: '/videos/剑来.mp4' },
-            '3': { title: '斗破苍穹', src: '/videos/斗破苍穹.mp4' },
-            '4': { title: '吞噬星空剧场版 血洛大陆', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
-            '5': { title: '蜡笔小新：风起云涌的丛林冒险', src: '/videos/仙逆.mp4' },
-            '6': { title: '蜡笔小新剧场版：新婚旅行风暴～夺回广志大作战～', src: '/videos/剑来.mp4' },
-            '7': { title: '蜡笔小新：幽灵忍者珍风传', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
-            '8': { title: '蜡笔小新：我的超时空新娘', src: '/videos/剑来.mp4' },
-            '9': { title: '完美世界', src: '/videos/斗破苍穹.mp4' },
-            '10': { title: '诛仙', src: '/videos/斗破苍穹.mp4' },
-            '11': { title: '百变小樱', src: '/videos/剑来.mp4' },
-            '12': { title: '寻梦环游记', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
-            '13': { title: '海底总动员', src: '/videos/斗破苍穹.mp4' },
-            '14': { title: '玩具总动员', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
-            '15': { title: '疯狂元素城', src: '/videos/剑来.mp4' },
-            '17': { title: '赛车总动员', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' }
-        };
-        // 根据 videoId 设置视频标题和视频源
+        // 定义备用视频路径
+        const fallbackVideo = '/videos/fail.flv';
+
+        // 检查视频文件是否存在的函数
+        async function checkVideoExists(videoPath) {
+            try {
+                const response = await fetch(videoPath, { method: 'HEAD' });
+                return response.ok; // 如果响应状态是 200，则文件存在
+            } catch (error) {
+                console.error('检查视频文件出错:', error);
+                return false; // 如果请求失败，则认为文件不存在
+            }
+        }
+
+        // 设置视频标题和路径
         if (videoData[videoId]) {
             videoTitle.textContent = videoData[videoId].title;
-            videoSource.src = videoData[videoId].src;
+
+            // 检查视频文件是否存在
+            checkVideoExists(videoData[videoId].src).then(exists => {
+                if (exists) {
+                    // 如果视频存在，设置路径
+                    videoSource.src = videoData[videoId].src;
+                } else {
+                    // 如果视频不存在，设置备用视频路径
+                    console.warn('视频文件不存在，切换到备用视频');
+                    videoSource.src = fallbackVideo;
+                }
+
+                // 加载视频
+                videoPlayer.load();
+            });
         } else {
+            // 如果 videoId 不存在，设置默认视频
             videoTitle.textContent = '视频';
-            videoSource.src = '/videos/default.mp4';  // 默认视频
+            videoSource.src = fallbackVideo; // 使用备用视频作为默认视频
+            videoPlayer.load();
         }
-        // 刷新视频源
-        document.getElementById('videoPlayer').load();
+
+
     </script>
 
 

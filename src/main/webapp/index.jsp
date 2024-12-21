@@ -37,10 +37,16 @@
   <div class="user-info">
     <%
       String username = (String) session.getAttribute("username");
+      String role = (String) session.getAttribute("role"); // 假设 session 中存储了用户角色
       if (username != null && !username.isEmpty()) {
     %>
     <span>欢迎，<%= username %>！</span>
     <%
+      if ("admin".equals(username)) { // 如果用户是管理员
+    %>
+    <button class="upload-button" onclick="location.href='upload.jsp'">上传视频</button>
+    <%
+      }
     } else {
     %>
     <a href="login.jsp">登录</a>
