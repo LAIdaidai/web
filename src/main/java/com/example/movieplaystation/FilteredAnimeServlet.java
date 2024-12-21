@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "FilteredAnimeServlet",value = "/FilteredAnimeServlet")
+@WebServlet(name = "FilteredAnimeServlet", value = "/FilteredAnimeServlet")
 public class FilteredAnimeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +28,7 @@ public class FilteredAnimeServlet extends HttpServlet {
         if (region == null) region = "all";
         if (sort == null) sort = "rating";
 
-        List<Anime> animeList = new ArrayList<>();
+        List<Video> videoList = new ArrayList<>();  // 修改为 Video 类型
 
         StringBuilder sql = new StringBuilder("SELECT * FROM videos WHERE 1=1");
         if (!region.equals("all")) {
@@ -50,24 +50,29 @@ public class FilteredAnimeServlet extends HttpServlet {
 
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
-                    Anime anime = new Anime(
+                    // 确保从 ResultSet 中读取的列名正确
+                    Video video = new Video(
                             rs.getInt("id"),
                             rs.getString("title"),
                             rs.getString("video_path"),
                             rs.getDouble("average_rating"),
                             rs.getString("region"),
-                            rs.getString("cover_image_path")
+                            rs.getString("cover_image_path"),
+                            rs.getString("type")
                     );
-                    animeList.add(anime);
+                    videoList.add(video);
                 }
+            } catch (SQLException e) {
+                System.err.println("读取结果集错误：" + e.getMessage());
+                e.printStackTrace();
             }
         } catch (SQLException e) {
+            System.err.println("数据库查询执行失败：" + e.getMessage());
             e.printStackTrace();
         }
 
-        request.setAttribute("animeList", animeList);
-        request.getRequestDispatcher("/anime.jsp").forward(request, response);
+
+        request.setAttribute("videoList", videoList);  // 设置 videoList 到 request
+        request.getRequestDispatcher("/anime.jsp").forward(request, response);  // 跳转到 JSP 页面
     }
-
-
 }

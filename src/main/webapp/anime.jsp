@@ -1,8 +1,7 @@
-<%@ page import="com.example.movieplaystation.Anime" %>
+<%@ page import="com.example.movieplaystation.Video" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 
 <!DOCTYPE html>
 <html lang="zh">
@@ -68,18 +67,16 @@
         <button type="submit">筛选</button>
     </form>
 
-
-
     <!-- 动漫展示区域 -->
     <div class="anime-grid">
-        <% List<Anime> animeList = (List<Anime>) request.getAttribute("animeList"); %>
+        <% List<Video> videoList = (List<Video>) request.getAttribute("videoList"); %>
         <c:choose>
-            <c:when test="${not empty animeList}">
-                <c:forEach var="anime" items="${animeList}">
+            <c:when test="${not empty videoList}">
+                <c:forEach var="video" items="${videoList}">
                     <!-- 添加 onclick 跳转 -->
-                    <div class="anime-item" onclick="location.href='video.jsp?videoId=${anime.id}'" style="cursor: pointer;">
-                        <img src="${anime.coverImagePath}" alt="${anime.title}">
-                        <p>${anime.title}</p>
+                    <div class="anime-item" onclick="location.href='video.jsp?videoId=${video.id}'" style="cursor: pointer;">
+                        <img src="${video.coverImagePath}" alt="${video.title}">
+                        <p>${video.title}</p>
                     </div>
                 </c:forEach>
             </c:when>

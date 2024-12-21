@@ -7,17 +7,19 @@ public class Video {
     private double averageRating; // 平均评分
     private String region; // 地区
     private String coverImagePath; // 封面图片路径
+    private String type; // 视频类型 (例如：动漫、电影等)
 
     // 构造函数
     public Video() {}
 
-    public Video(int id, String title, String videoPath, double averageRating, String region, String coverImagePath) {
+    public Video(int id, String title, String videoPath, double averageRating, String region, String coverImagePath, String type) {
         this.id = id;
         this.title = title;
         this.videoPath = videoPath;
         this.averageRating = averageRating;
         this.region = region;
         this.coverImagePath = coverImagePath;
+        this.type = type;
     }
 
     // Getters and Setters
@@ -69,6 +71,14 @@ public class Video {
         this.coverImagePath = coverImagePath;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     // Override toString() 方法
     @Override
     public String toString() {
@@ -79,6 +89,7 @@ public class Video {
                 ", averageRating=" + averageRating +
                 ", region='" + region + '\'' +
                 ", coverImagePath='" + coverImagePath + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }
