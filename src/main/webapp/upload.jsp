@@ -22,6 +22,14 @@
             <option value="未知">未知</option>
         </select>
 
+        <label for="type">影视类型:</label>
+        <select id="type" name="type" required>
+            <option value="动漫">动漫</option>
+            <option value="电影">电影</option>
+            <option value="电视剧">电视剧</option>
+            <option value="综艺">综艺</option>
+        </select>
+
         <label for="videoFile">上传视频文件:</label>
         <input type="file" id="videoFile" name="videoFile" accept="video/*" required>
 

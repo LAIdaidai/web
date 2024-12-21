@@ -59,6 +59,16 @@
             <option value="欧美" <%= "欧美".equals(request.getAttribute("region")) ? "selected" : "" %>>欧美</option>
             <option value="未知" <%= "未知".equals(request.getAttribute("region")) ? "selected" : "" %>>未知</option>
         </select>
+
+        <label for="type">类型:</label>
+        <select name="type" id="type">
+            <option value="all" <%= "all".equals(request.getAttribute("type")) ? "selected" : "" %>>所有类型</option>
+            <option value="动漫" <%= "动漫".equals(request.getAttribute("type")) ? "selected" : "" %>>动漫</option>
+            <option value="电影" <%= "电影".equals(request.getAttribute("type")) ? "selected" : "" %>>电影</option>
+            <option value="电视剧" <%= "电视剧".equals(request.getAttribute("type")) ? "selected" : "" %>>电视剧</option>
+            <option value="综艺" <%= "综艺".equals(request.getAttribute("type")) ? "selected" : "" %>>综艺</option>
+        </select>
+
         <label for="sort">排序:</label>
         <select name="sort" id="sort">
             <option value="rating" <%= "rating".equals(request.getAttribute("sort")) ? "selected" : "" %>>评分</option>

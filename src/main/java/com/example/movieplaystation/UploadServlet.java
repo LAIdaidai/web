@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,6 +21,7 @@ public class UploadServlet extends HttpServlet {
         // 获取表单数据
         String title = request.getParameter("title");
         String region = request.getParameter("region");
+        String type = request.getParameter("type");  // 获取影视类型
         Part videoPart = request.getPart("videoFile");
         Part imagePart = request.getPart("coverImage");
 
@@ -35,12 +35,13 @@ public class UploadServlet extends HttpServlet {
 
         // 保存数据到数据库
         try (Connection conn = JDBCUtils.getConnection()) {
-            String sql = "INSERT INTO videos (title, video_path, region, cover_image_path) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO videos (title, video_path, region, cover_image_path, type) VALUES (?, ?, ?, ?, ?)";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, title);
                 stmt.setString(2, "/videos/" + title + ".mp4");
                 stmt.setString(3, region);
                 stmt.setString(4, "/images/" + title + ".png");
+                stmt.setString(5, type);  // 插入类型
                 stmt.executeUpdate();
             }
         } catch (SQLException e) {

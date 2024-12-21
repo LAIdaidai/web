@@ -22,17 +22,25 @@ public class FilteredAnimeServlet extends HttpServlet {
 
         HttpSession session = request.getSession(false);
 
+        // 获取请求参数
         String region = request.getParameter("region");
         String sort = request.getParameter("sort");
+        String type = request.getParameter("type");
 
+        // 设置默认值
         if (region == null) region = "all";
         if (sort == null) sort = "rating";
+        if (type == null) type = "all";  // 默认为所有类型
 
-        List<Video> videoList = new ArrayList<>();  // 修改为 Video 类型
+        List<Video> videoList = new ArrayList<>();  // 存储查询到的视频
 
+        // 构建 SQL 查询
         StringBuilder sql = new StringBuilder("SELECT * FROM videos WHERE 1=1");
         if (!region.equals("all")) {
             sql.append(" AND region = ?");
+        }
+        if (!type.equals("all")) {
+            sql.append(" AND type = ?");
         }
         if ("rating".equals(sort)) {
             sql.append(" ORDER BY average_rating DESC");
@@ -44,13 +52,21 @@ public class FilteredAnimeServlet extends HttpServlet {
              PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
 
             int paramIndex = 1;
+
+            // 设置 region 参数
             if (!region.equals("all")) {
                 stmt.setString(paramIndex++, region);
             }
 
+            // 设置 type 参数
+            if (!type.equals("all")) {
+                stmt.setString(paramIndex++, type);
+            }
+
+            // 执行查询
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
-                    // 确保从 ResultSet 中读取的列名正确
+                    // 从 ResultSet 中获取数据并创建 Video 对象
                     Video video = new Video(
                             rs.getInt("id"),
                             rs.getString("title"),
@@ -71,8 +87,13 @@ public class FilteredAnimeServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        // 将查询结果传递到 JSP 页面
+        request.setAttribute("videoList", videoList);
+        request.setAttribute("region", region);
+        request.setAttribute("sort", sort);
+        request.setAttribute("type", type);  // 设置 type 参数
 
-        request.setAttribute("videoList", videoList);  // 设置 videoList 到 request
-        request.getRequestDispatcher("/anime.jsp").forward(request, response);  // 跳转到 JSP 页面
+        request.getRequestDispatcher("/anime.jsp").forward(request, response);
     }
 }
+
