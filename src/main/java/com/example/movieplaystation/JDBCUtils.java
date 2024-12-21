@@ -1,7 +1,9 @@
 package com.example.movieplaystation;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
-import java.io.*;
 import java.util.Properties;
 
 public class JDBCUtils {
@@ -9,7 +11,12 @@ public class JDBCUtils {
     // 读取配置文件并获取数据库连接
     public static Connection getConnection() throws SQLException {
         Properties properties = new Properties();
-
+        try {
+            // 显式加载 MySQL 驱动
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("MySQL JDBC 驱动未找到！", e);
+        }
         // 使用 ClassLoader 加载配置文件
         try (InputStream input = JDBCUtils.class.getClassLoader().getResourceAsStream("db.properties")) {
             if (input == null) {

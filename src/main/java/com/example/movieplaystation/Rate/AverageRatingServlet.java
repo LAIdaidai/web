@@ -1,9 +1,14 @@
 package com.example.movieplaystation.Rate;
 
-import java.sql.*;
 import com.example.movieplaystation.JDBCUtils;
+import jakarta.servlet.http.HttpServlet;
 
-public class AverageRatingServlet {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class AverageRatingServlet extends HttpServlet{
 
     // 获取视频平均评分的方法
     public static double getAverageRatingByVideoId(int videoId) {

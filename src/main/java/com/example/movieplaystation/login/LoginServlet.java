@@ -1,10 +1,17 @@
 package com.example.movieplaystation.login;
 
-import java.io.*;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import java.sql.*;
 import com.example.movieplaystation.JDBCUtils;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,7 +28,6 @@ public class LoginServlet extends HttpServlet {
 
         try {
             // 连接到数据库
-            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = JDBCUtils.getConnection();
 
             // SQL 查询语句，检查用户是否存在且密码是否正确

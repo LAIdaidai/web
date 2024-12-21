@@ -38,7 +38,7 @@
         <ul>
             <li><a href="index.jsp">首页</a></li>
             <li><a href="movieList">电影</a></li>
-            <li><a href="anime.jsp">动漫</a></li>
+            <li><a href="FilteredAnimeServlet">动漫</a></li>
             <li><a href="profile.jsp">个人主页</a></li>
         </ul>
     </nav>
@@ -90,7 +90,7 @@
             '13': { title: '海底总动员', src: '/videos/斗破苍穹.mp4' },
             '14': { title: '玩具总动员', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' },
             '15': { title: '疯狂元素城', src: '/videos/剑来.mp4' },
-            '16': { title: '赛车总动员', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' }
+            '17': { title: '赛车总动员', src: '/videos/吞噬星空剧场版 血洛大陆.mp4' }
         };
         // 根据 videoId 设置视频标题和视频源
         if (videoData[videoId]) {

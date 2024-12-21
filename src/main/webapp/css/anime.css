@@ -85,20 +85,25 @@ h1 {
 
 /* 动漫列表区域样式 */
 .anime-grid {
+    max-width: 100%;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 每行显示5个动画 */
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     padding: 10px;
+    box-sizing: border-box;
 }
+
 
 .anime-item {
     background-color: #fff;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 8px; /* 减少内边距 */
+    border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.2s;
 }
+
 
 .anime-item:hover {
     transform: scale(1.05);
@@ -164,4 +169,44 @@ footer {
     .anime-grid {
         grid-template-columns: 1fr; /* 每行显示一列 */
     }
+}
+
+
+/* 筛选表单样式 */
+form {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 每个元素之间的间距 */
+    margin: 20px 0; /* 表单上下间距 */
+}
+
+form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+form select {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+form button {
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
 }

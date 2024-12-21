@@ -24,7 +24,7 @@
     <ul>
       <li><a href="index.jsp">首页</a></li>
       <li><a href="movieList">电影</a></li>
-      <li><a href="anime.jsp">动漫</a></li>
+      <li><a href="FilteredAnimeServlet">动漫</a></li>
       <li><a href="profile.jsp">个人主页</a></li>
     </ul>
   </nav>
