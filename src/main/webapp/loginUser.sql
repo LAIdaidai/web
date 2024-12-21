@@ -54,9 +54,9 @@ ALTER TABLE videos
 
 
 #删除
-DELETE FROM comments WHERE comment_text = '张煜是啥鸟';
+DELETE FROM videos WHERE id= 17;
 #更新数据
-UPDATE videos SET videos.region='欧美' WHERE id = 9;
+UPDATE videos SET videos.type='电影' WHERE id = 16;
 
 UPDATE videos
 SET cover_image_path = 'images/吞噬星空剧场版 血洛大陆.jpg'

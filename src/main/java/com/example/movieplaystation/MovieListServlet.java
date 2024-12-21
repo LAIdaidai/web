@@ -41,13 +41,13 @@ public class MovieListServlet extends HttpServlet {
             }
 
             // SQL 查询所有视频
-            String sql = "SELECT id, title, cover_image_path FROM videos";
+            String sql = "SELECT id, title, cover_image_path FROM videos WHERE type = '电影';";
             stmt = conn.prepareStatement(sql);
             rs = stmt.executeQuery();
 
             // 检查是否有返回的结果
             if (!rs.next()) {
-                System.out.println("没有从数据库中获取到视频数据！");
+                System.out.println("没有从数据库中获取到电影数据！");
             } else {
                 // 将查询到的结果映射为 Video 对象并存入一个 List
                 List<Video> videoList = new ArrayList<>();
