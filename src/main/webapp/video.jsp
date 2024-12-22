@@ -49,13 +49,21 @@
 <main>
     <h1 id="videoTitle">视频</h1>
     <%
-        String videoId = request.getParameter("videoId");
+        String videoIdParam = request.getParameter("videoId");
+        int videoId = -1; // 默认值为 -1，表示无效 ID
         double averageRating = 0;
-        if (videoId != null) {
-            // 调用 AverageRatingServlet 获取平均评分
-            averageRating = AverageRatingServlet.getAverageRatingByVideoId(Integer.parseInt(videoId));
+
+        if (videoIdParam != null && !videoIdParam.isEmpty()) {
+            try {
+                videoId = Integer.parseInt(videoIdParam);
+                // 调用 AverageRatingServlet 获取平均评分
+                averageRating = AverageRatingServlet.getAverageRatingByVideoId(videoId);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
         }
     %>
+
     <!-- 显示平均评分 -->
     <div id="averageRating">
         平均评分: <%= averageRating %>
@@ -165,29 +173,57 @@
     <!-- 评论区 -->
     <div class="comments">
         <h3>评论区</h3>
-        <form action="${pageContext.request.contextPath}/CommentServlet" method="POST" onsubmit="return validateComment()">
+        <form name="submit-comment" action="${pageContext.request.contextPath}/CommentServlet" method="POST" onsubmit="return validateComment()">
             <textarea id="commentText" name="commentText" placeholder="发表评论..."></textarea>
             <input type="hidden" name="videoId" value="<%= request.getParameter("videoId") %>">
             <input type="hidden" name="username" value="<%= session.getAttribute("username") != null ? session.getAttribute("username") : "匿名" %>">
-            <button type="submit">提交评论</button>
+            <button type="submit" class="submit">提交评论</button>
         </form>
 
         <div id="commentList">
             <!-- 评论列表 -->
             <%
-                if (videoId != null) {
-                    List<Comment> comments = ShowCommentServlet.getCommentsByVideoId(Integer.parseInt(videoId));
-                    for (Comment comment : comments) {
+                if (videoId != -1) {
+                    List<Comment> comments = ShowCommentServlet.getCommentsByVideoId(videoId);
+                    if (comments != null && !comments.isEmpty()) {
+                        for (Comment comment : comments) {
             %>
             <div class="comment-item">
-                <p><strong><%= comment.getUsername() %>：</strong><%= comment.getCommentText() %></p>
-                <p><small><%= comment.getFormattedTime() %></small></p>
+                <!-- 左侧评论内容 -->
+                <div class="comment-text">
+                    <p><strong><%= comment.getUsername() %>：</strong><%= comment.getCommentText() %></p>
+                    <p><small><%= comment.getFormattedTime() %></small></p>
+                </div>
+                <!-- 右侧删除按钮（仅管理员可见） -->
+                <%
+                    String userRole = (String) session.getAttribute("role");
+                    if ("admin".equals(username)) {
+                %>
+                <form action="DeleteCommentServlet" method="POST" class="delform">
+                    <input type="hidden" name="commentId" value="<%= comment.getId() %>">
+                    <input type="hidden" name="videoId" value="<%= videoId %>">
+                    <button type="submit" class="delete-button">删除</button>
+                </form>
+                <%
+                    }
+                %>
             </div>
             <%
-                    }
+                }
+            } else {
+            %>
+            <p>暂无评论。</p>
+            <%
+                }
+            } else {
+            %>
+            <p>未找到视频或无效的视频ID。</p>
+            <%
                 }
             %>
         </div>
+
+
     </div>
     </div>
 </main>

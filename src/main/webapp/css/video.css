@@ -9,7 +9,7 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.comments form {
+.comments #submit-comment {
     margin-bottom: 20px;
     background-color: #f9f9f9;
     padding: 20px;
@@ -48,7 +48,7 @@
     font-style: italic;
 }
 
-.comments form button {
+.comments form .submit {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -62,43 +62,20 @@
     margin-top: 12px;
 }
 
-.comments form button:hover {
+.comments form .submit:hover {
     background-color: #45a049;
     transform: scale(1.05); /* 鼠标悬停时按钮略微放大 */
 }
 
-.comments form button:disabled {
+.comments form .submit:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
-/* 评论项 */
-.comment-item {
-    background-color: #fff;
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
 
-.comment-item:hover {
-    background-color: #f9f9f9;
-}
 
-.comment-item p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-    line-height: 1.5;
-}
 
-.comment-item small {
-    display: block;
-    margin-top: 8px;
-    color: #777;
-    font-size: 13px;
-}
+
 
 /* 评分区 */
 .stars {
@@ -168,4 +145,57 @@
     #videoPlayer {
         max-width: 100%;    /* 确保视频在小屏幕下不超出屏幕 */
     }
+}
+
+.comment-item:hover {
+    background-color: #f9f9f9;
+}
+
+.comment-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.comment-item small {
+    display: block;
+    margin-top: 8px;
+    color: #777;
+    font-size: 13px;
+}
+
+.comment-item {
+    display: flex; /* 使用 flex 布局 */
+    justify-content: space-between; /* 评论内容和删除按钮分别对齐两侧 */
+    align-items: center; /* 垂直居中对齐 */
+    background-color: #fff; /* 背景颜色 */
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.comment-text {
+    flex: 1; /* 评论内容占据剩余空间 */
+    margin-right: 10px; /* 和删除按钮之间留间距 */
+}
+
+.delete-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease; /* 添加渐变效果 */
+}
+
+.delete-button:hover {
+    background-color: #ff1a1a;
+}
+
+.delform{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
 }

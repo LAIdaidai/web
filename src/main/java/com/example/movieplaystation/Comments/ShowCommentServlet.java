@@ -1,11 +1,15 @@
 package com.example.movieplaystation.Comments;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import java.io.*;
-import java.sql.*;
-import java.util.*;
 import com.example.movieplaystation.JDBCUtils;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShowCommentServlet extends HttpServlet {
 
@@ -40,7 +44,7 @@ public class ShowCommentServlet extends HttpServlet {
     public static List<Comment> getCommentsByVideoId(int videoId) {
         List<Comment> commentList = new ArrayList<>();
         try (Connection conn = JDBCUtils.getConnection()) {
-            String sql = "SELECT username, comment_text, comment_time FROM comments WHERE video_id = ? ORDER BY comment_time DESC";
+            String sql = "SELECT id,username, comment_text, comment_time FROM comments WHERE video_id = ? ORDER BY comment_time DESC";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setInt(1, videoId);  // 使用视频ID查询评论
                 try (ResultSet rs = stmt.executeQuery()) {
@@ -48,7 +52,8 @@ public class ShowCommentServlet extends HttpServlet {
                         String username = rs.getString("username");
                         String commentText = rs.getString("comment_text");
                         Timestamp commentTime = rs.getTimestamp("comment_time");
-                        commentList.add(new Comment(username, commentText, commentTime));
+                        int commentID = rs.getInt("id");
+                        commentList.add(new Comment(commentID,username, commentText, commentTime));
                     }
                 }
             }
