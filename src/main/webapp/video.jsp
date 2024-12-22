@@ -233,7 +233,6 @@
 </footer>
 
 <script>
-    // 设置评分
     function setRating(star) {
         let ratingMessage = '';
         let ratingValue = 2 * star; // 每颗星2分
@@ -279,14 +278,20 @@
         xhr.open("POST", "RateServlet", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // 成功后进行相应处理
-                alert("评分成功！");
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    // 成功后进行相应处理
+                    alert("评分成功！");
+                } else if (xhr.status == 403) {
+                    // 如果返回 403，表示用户已经评分
+                    alert(xhr.responseText); // 提示用户不能重复评分
+                } else {
+                    alert("评分失败，请重试！");
+                }
             }
         };
         xhr.send("videoId=" + videoId + "&username=" + username + "&rating=" + ratingValue);
     }
-
     // 鼠标悬停效果
     document.querySelectorAll(".star").forEach((starElement, index) => {
         starElement.addEventListener("mouseenter", function() {

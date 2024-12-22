@@ -44,6 +44,15 @@
             %>
             ！
         </p>
+
+        <%-- 如果已经登录，显示退出登录按钮 --%>
+        <%
+            if (username != null) {
+        %>
+        <a href="logout.jsp" class="logout-btn">退出登录</a>
+        <%
+            }
+        %>
     </section>
 
     <section class="profile-info">
@@ -59,7 +68,7 @@
                 <%
                     if (session.getAttribute("username") != null) {
                 %>
-                <a href="/viewHistory">查看观看历史</a>
+                <a href="viewHistory">查看观看历史</a>
                 <%
                 } else {
                 %>

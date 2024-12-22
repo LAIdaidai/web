@@ -1,4 +1,4 @@
-package com.example.movieplaystation;
+package com.example.movieplaystation.History;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

@@ -1,4 +1,4 @@
-package com.example.movieplaystation;
+package com.example.movieplaystation.History;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

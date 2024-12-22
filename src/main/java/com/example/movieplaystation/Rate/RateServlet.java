@@ -1,6 +1,5 @@
 package com.example.movieplaystation.Rate;
 
-import com.example.movieplaystation.Comments.InsertComment;
 import com.example.movieplaystation.JDBCUtils;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,8 +16,22 @@ public class RateServlet extends HttpServlet {
         String username = request.getParameter("username");
         int rating = Integer.parseInt(request.getParameter("rating"));
 
-        // 存储评分到数据库
         try (Connection conn = JDBCUtils.getConnection()) {
+            // 检查用户是否已经对该视频评分
+            String checkSql = "SELECT COUNT(*) FROM ratings WHERE video_id = ? AND username = ?";
+            try (PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+                checkStmt.setInt(1, Integer.parseInt(videoId));
+                checkStmt.setString(2, username);
+                ResultSet rs = checkStmt.executeQuery();
+                if (rs.next() && rs.getInt(1) > 0) {
+                    // 如果用户已经评分，返回错误提示
+                    response.setStatus(HttpServletResponse.SC_FORBIDDEN);  // 403 禁止
+                    response.getWriter().write("你已经为该视频评分，不能重复评分喵~");
+                    return;
+                }
+            }
+
+            // 如果用户未评分，则存储评分
             String sql = "INSERT INTO ratings (video_id, username, rating) VALUES (?, ?, ?)";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setInt(1, Integer.parseInt(videoId));
@@ -58,3 +71,4 @@ public class RateServlet extends HttpServlet {
         }
     }
 }
+

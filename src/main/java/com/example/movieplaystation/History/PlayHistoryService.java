@@ -1,10 +1,11 @@
-package com.example.movieplaystation;
+package com.example.movieplaystation.History;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.sql.*;
 import java.util.*;
-import com.example.movieplaystation.History;
+
+import com.example.movieplaystation.JDBCUtils;
 
 public class PlayHistoryService {
     public Map<String, List<History>> getPlayHistoryByUsername(String username) {

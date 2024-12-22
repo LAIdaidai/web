@@ -1,6 +1,6 @@
-<%@ page import="java.util.*, com.example.movieplaystation.History" %>
+<%@ page import="java.util.*, com.example.movieplaystation.History.History" %>
 <%@ page import="java.time.LocalDateTime" %>
-<%@ page import="com.example.movieplaystation.History" %>
+<%@ page import="com.example.movieplaystation.History.History" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zh">
