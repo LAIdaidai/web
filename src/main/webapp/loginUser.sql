@@ -28,6 +28,15 @@ CREATE TABLE ratings (
                          rating INT NOT NULL,  -- 存储2到10之间的评分值
                          FOREIGN KEY (video_id) REFERENCES videos(id)
 );
+CREATE TABLE play_history (
+                              id INT AUTO_INCREMENT PRIMARY KEY,              -- 历史记录ID，自增
+                              username VARCHAR(255) NOT NULL,                  -- 用户名，替代之前的 user_id
+                              video_id INT NOT NULL,                           -- 视频ID，关联 videos 表
+                              play_time DATETIME DEFAULT CURRENT_TIMESTAMP,    -- 播放时间，默认为当前时间
+                              FOREIGN KEY (video_id) REFERENCES videos(id)    -- 关联视频ID
+);
+
+
 CREATE USER 'laiyuci'@'localhost' IDENTIFIED BY '1';
 
 GRANT ALL PRIVILEGES ON web.* TO 'laiyuci'@'localhost';
@@ -36,6 +45,7 @@ select * from users;
 select * from comments;
 select * from videos;
 select * from ratings;
+select * from play_history;
 
 #插入数据
 INSERT INTO videos (title, video_path,region) VALUES
@@ -52,7 +62,6 @@ ALTER TABLE videos
 ALTER TABLE videos
     ADD COLUMN type VARCHAR(50) DEFAULT '动漫';
 
-
 #删除
 DELETE FROM videos WHERE id= 17;
 #更新数据
@@ -62,11 +71,14 @@ UPDATE videos
 SET cover_image_path = 'images/吞噬星空剧场版 血洛大陆.jpg'
 WHERE title = '吞噬星空剧场版 血洛大陆';
 
+show tables ;
 
 
-
-
-
+SELECT ph.play_time, v.id, v.title, v.cover_image_path
+FROM play_history ph
+         JOIN videos v ON ph.video_id = v.id
+WHERE ph.username = 'admin'
+ORDER BY ph.play_time DESC;
 
 
 

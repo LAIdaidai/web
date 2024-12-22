@@ -40,9 +40,6 @@
         <servlet-name>AverageRatingServlet</servlet-name>
         <servlet-class>com.example.movieplaystation.Rate.AverageRatingServlet</servlet-class>
     </servlet>
-
-
-
     <servlet-mapping>
         <servlet-name>AverageRatingServlet</servlet-name>
         <url-pattern>/AverageRatingServlet</url-pattern>

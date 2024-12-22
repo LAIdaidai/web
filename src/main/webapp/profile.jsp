@@ -55,8 +55,19 @@
             <p><strong>用户名：</strong>
                 <%= session.getAttribute("username") != null ? session.getAttribute("username") : "未登录" %>
             </p>
-            <p><strong>观看历史：</strong>电影1, 电视剧2, 动漫3</p>
-            <p><strong>收藏夹：</strong>电影4, 电视剧5</p>
+            <p><strong>观看历史：</strong>
+                <%
+                    if (session.getAttribute("username") != null) {
+                %>
+                <a href="/viewHistory">查看观看历史</a>
+                <%
+                } else {
+                %>
+                请登录后查看观看历史
+                <%
+                    }
+                %>
+            </p>
         </div>
     </section>
 </main>

@@ -120,6 +120,23 @@
 
                 // 加载视频
                 videoPlayer.load();
+                // 在视频加载时发送播放历史记录到后端
+                window.onload = function() {
+                    const videoId = urlParams.get('videoId');
+                    const username = "<%= session.getAttribute("username") != null ? session.getAttribute("username") : "匿名" %>";
+
+                    if (videoId && username) {
+                        const xhr = new XMLHttpRequest();
+                        xhr.open("POST", "UpdatePlayHistoryServlet", true);  // 发送请求到后端 Servlet
+                        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                console.log("播放历史记录更新成功！");
+                            }
+                        };
+                        xhr.send("videoId=" + videoId + "&username=" + username);
+                    }
+                };
             });
         } else {
             // 如果 videoId 不存在，设置默认视频
@@ -145,33 +162,33 @@
         <p id="ratingMessage"></p>
     </div>
 
-        <!-- 评论区 -->
-        <div class="comments">
-            <h3>评论区</h3>
-            <form action="${pageContext.request.contextPath}/CommentServlet" method="POST" onsubmit="return validateComment()">
-                <textarea id="commentText" name="commentText" placeholder="发表评论..."></textarea>
-                <input type="hidden" name="videoId" value="<%= request.getParameter("videoId") %>">
-                <input type="hidden" name="username" value="<%= session.getAttribute("username") != null ? session.getAttribute("username") : "匿名" %>">
-                <button type="submit">提交评论</button>
-            </form>
+    <!-- 评论区 -->
+    <div class="comments">
+        <h3>评论区</h3>
+        <form action="${pageContext.request.contextPath}/CommentServlet" method="POST" onsubmit="return validateComment()">
+            <textarea id="commentText" name="commentText" placeholder="发表评论..."></textarea>
+            <input type="hidden" name="videoId" value="<%= request.getParameter("videoId") %>">
+            <input type="hidden" name="username" value="<%= session.getAttribute("username") != null ? session.getAttribute("username") : "匿名" %>">
+            <button type="submit">提交评论</button>
+        </form>
 
-            <div id="commentList">
-                <!-- 评论列表 -->
-                <%
-                    if (videoId != null) {
-                        List<Comment> comments = ShowCommentServlet.getCommentsByVideoId(Integer.parseInt(videoId));
-                        for (Comment comment : comments) {
-                %>
-                <div class="comment-item">
-                    <p><strong><%= comment.getUsername() %>：</strong><%= comment.getCommentText() %></p>
-                    <p><small><%= comment.getFormattedTime() %></small></p>
-                </div>
-                <%
-                        }
-                    }
-                %>
+        <div id="commentList">
+            <!-- 评论列表 -->
+            <%
+                if (videoId != null) {
+                    List<Comment> comments = ShowCommentServlet.getCommentsByVideoId(Integer.parseInt(videoId));
+                    for (Comment comment : comments) {
+            %>
+            <div class="comment-item">
+                <p><strong><%= comment.getUsername() %>：</strong><%= comment.getCommentText() %></p>
+                <p><small><%= comment.getFormattedTime() %></small></p>
             </div>
+            <%
+                    }
+                }
+            %>
         </div>
+    </div>
     </div>
 </main>
 
@@ -254,14 +271,14 @@
             });
         });
     });
-        // 验证评论是否为空
-        function validateComment() {
+    // 验证评论是否为空
+    function validateComment() {
         const commentText = document.getElementById("commentText").value.trim();
 
         if (commentText === "") {
-        alert("评论内容不能为空喵~");  // 提示用户评论不能为空
-        return false;  // 阻止表单提交
-    }
+            alert("评论内容不能为空喵~");  // 提示用户评论不能为空
+            return false;  // 阻止表单提交
+        }
 
         return true;  // 允许表单提交
     }

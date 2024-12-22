@@ -77,7 +77,6 @@ body {
     padding: 12px;
     font-size: 18px;
     font-weight: 600;
-    background-color: linear-gradient(90deg, #007bff, #0056b3); /* 渐变按钮 */
     color: white;
     border: none;
     border-radius: 6px;
