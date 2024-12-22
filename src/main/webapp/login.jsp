@@ -36,7 +36,10 @@
         </div>
 
         <div class="form-group">
-            <p>没有账号？<a href="register.jsp">立即注册</a></p>
+            <p>
+                没有账号？<a href="register.jsp">立即注册</a> |
+                <a href="forgotPassword.jsp">忘记密码？</a>
+            </p>
         </div>
     </form>
 </main>

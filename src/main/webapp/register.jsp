@@ -47,6 +47,11 @@
         </div>
 
         <div class="form-group">
+            <label for="phone">手机号：</label>
+            <input type="text" id="phone" name="phone" placeholder="请输入手机号" />
+        </div>
+
+        <div class="form-group">
             <label for="password">密码：</label>
             <input type="password" id="password" name="password" placeholder="请输入密码" required />
         </div>
@@ -64,22 +69,21 @@
             <p>已经有账号？<a href="login.jsp">立即登录</a></p>
         </div>
 
-        <%-- 显示错误信息 --%>
-        <c:if test="${not empty errorMessage}">
-            <div class="error-message">
-                <p>${errorMessage}</p>
-            </div>
-        </c:if>
-
-        <%-- 显示注册成功信息 --%>
-        <c:if test="${not empty successMessage}">
-            <div class="success-message">
-                <p>${successMessage}</p>
-                <a href="login.jsp">点击登录</a>
-            </div>
-        </c:if>
-
     </form>
+
+    <!-- 显示注册结果消息 -->
+    <div class="message">
+        <c:choose>
+            <c:when test="${not empty successMessage}">
+                <p class="success">${successMessage}</p>
+                <a href="login.jsp">返回登录</a>
+            </c:when>
+            <c:otherwise>
+                <p class="error">${errorMessage}</p>
+            </c:otherwise>
+        </c:choose>
+    </div>
+
 </main>
 
 <!-- 底部信息 -->
