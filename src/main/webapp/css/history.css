@@ -52,6 +52,7 @@ header nav ul li a:hover {
     text-decoration: underline;
     color: #ff6347;
 }
+
 /* 主体部分 */
 main {
     padding: 20px;
@@ -63,6 +64,24 @@ h1 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
+}
+
+/* 日期分组样式 */
+.date-group {
+    margin-bottom: 30px; /* 增加日期分组间的间距 */
+    text-align: left;  /* 让日期对齐到左边 */
+}
+
+.date-group h2 {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* 让日期保持内联块状，避免占满一行 */
+    margin-bottom: 10px; /* 为日期和视频之间留一点间距 */
 }
 
 /* 视频列表 */

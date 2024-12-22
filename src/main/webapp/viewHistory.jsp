@@ -37,15 +37,22 @@
     <p>您没有观看任何历史记录。</p>
     <%
     } else {
+        // 按日期降序排序
+        List<Map.Entry<String, List<History>>> sortedEntries = new ArrayList<>(groupedHistory.entrySet());
+        sortedEntries.sort((e1, e2) -> e2.getKey().compareTo(e1.getKey())); // 按日期降序排列
+
         // 遍历每个日期分组
-        for (Map.Entry<String, List<History>> entry : groupedHistory.entrySet()) {
+        for (Map.Entry<String, List<History>> entry : sortedEntries) {
             String date = entry.getKey();
             List<History> historyList = entry.getValue();
     %>
     <div class="date-group">
-        <h2><%= date %></h2> <!-- 显示日期 -->
+        <h2><%= date %></h2>
         <div class="video-grid">
             <%
+                // 按播放时间排序
+                historyList.sort((h1, h2) -> h2.getPlayTime().compareTo(h1.getPlayTime())); // 按播放时间降序排列
+
                 // 遍历该日期下的视频历史记录
                 for (History history : historyList) {
                     int videoId = history.getVideoId();
