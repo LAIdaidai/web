@@ -1,5 +1,6 @@
-<%@ page import="java.util.*, com.example.movieplaystation.PlayHistory" %>
+<%@ page import="java.util.*, com.example.movieplaystation.History" %>
 <%@ page import="java.time.LocalDateTime" %>
+<%@ page import="com.example.movieplaystation.History" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zh">
@@ -29,7 +30,7 @@
     <h1>观看历史</h1>
     <%
         // 获取历史记录按日期分组
-        Map<String, List<PlayHistory>> groupedHistory = (Map<String, List<PlayHistory>>) request.getAttribute("groupedHistory");
+        Map<String, List<History>> groupedHistory = (Map<String, List<History>>) request.getAttribute("groupedHistory");
 
         if (groupedHistory == null || groupedHistory.isEmpty()) {
     %>
@@ -37,16 +38,16 @@
     <%
     } else {
         // 遍历每个日期分组
-        for (Map.Entry<String, List<PlayHistory>> entry : groupedHistory.entrySet()) {
+        for (Map.Entry<String, List<History>> entry : groupedHistory.entrySet()) {
             String date = entry.getKey();
-            List<PlayHistory> historyList = entry.getValue();
+            List<History> historyList = entry.getValue();
     %>
     <div class="date-group">
         <h2><%= date %></h2> <!-- 显示日期 -->
         <div class="video-grid">
             <%
                 // 遍历该日期下的视频历史记录
-                for (PlayHistory history : historyList) {
+                for (History history : historyList) {
                     int videoId = history.getVideoId();
                     String coverImagePath = history.getCoverImagePath();
                     String title = history.getTitle();

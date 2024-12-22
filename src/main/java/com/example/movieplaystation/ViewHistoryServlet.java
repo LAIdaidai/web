@@ -19,7 +19,7 @@ public class ViewHistoryServlet extends HttpServlet {
         if (username != null) {
             PlayHistoryService playHistoryService = new PlayHistoryService();
             // 获取按日期分组的历史记录
-            Map<String, List<PlayHistory>> groupedHistory = playHistoryService.getPlayHistoryByUsername(username);
+            Map<String, List<History>> groupedHistory = playHistoryService.getPlayHistoryByUsername(username);
 
             // 将分组后的历史记录传递给 JSP 页面
             request.setAttribute("groupedHistory", groupedHistory);

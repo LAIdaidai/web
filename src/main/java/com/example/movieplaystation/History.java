@@ -3,7 +3,7 @@ package com.example.movieplaystation;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class PlayHistory {
+public class History {
     private int videoId;               // 视频ID
     private String coverImagePath;     // 视频封面路径
     private String username;           // 用户名
@@ -11,7 +11,7 @@ public class PlayHistory {
     private LocalDateTime playTime;    // 播放时间
 
     // 构造方法
-    public PlayHistory(int videoId, String coverImagePath, String username, String title, LocalDateTime playTime) {
+    public History(int videoId, String coverImagePath, String username, String title, LocalDateTime playTime) {
         this.videoId = videoId;
         this.coverImagePath = coverImagePath;
         this.username = username;

@@ -4,10 +4,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.sql.*;
 import java.util.*;
+import com.example.movieplaystation.History;
 
 public class PlayHistoryService {
-    public Map<String, List<PlayHistory>> getPlayHistoryByUsername(String username) {
-        Map<String, List<PlayHistory>> groupedHistory = new TreeMap<>();  // 使用 TreeMap 按日期排序
+    public Map<String, List<History>> getPlayHistoryByUsername(String username) {
+        Map<String, List<History>> groupedHistory = new TreeMap<>();  // 使用 TreeMap 按日期排序
 
         try (Connection connection = JDBCUtils.getConnection()) {
             String sql = "SELECT p.video_id, v.cover_image_path, p.username, v.title, p.play_time " +
@@ -26,7 +27,7 @@ public class PlayHistoryService {
                         String title = rs.getString("title");
                         LocalDateTime playTime = rs.getTimestamp("play_time").toLocalDateTime();
 
-                        PlayHistory playHistory = new PlayHistory(videoId, coverImagePath, user, title, playTime);
+                        History playHistory = new History(videoId, coverImagePath, user, title, playTime);
 
                         // 按日期分组
                         String dateKey = playTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
