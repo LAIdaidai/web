@@ -7,7 +7,7 @@ public class Video {
     private double averageRating; // 平均评分
     private String region; // 地区
     private String coverImagePath; // 封面图片路径
-    private String type; // 视频类型 (例如：动漫、电影等)
+    private String type;
 
     // 构造函数
     public Video() {}
