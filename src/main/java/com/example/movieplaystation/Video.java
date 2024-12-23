@@ -1,15 +1,15 @@
 package com.example.movieplaystation;
 
 public class Video {
-    private int id; // 视频ID
-    private String title; // 视频标题
-    private String videoPath; // 视频文件路径
-    private double averageRating; // 平均评分
-    private String region; // 地区
-    private String coverImagePath; // 封面图片路径
+    private int id;
+    private String title;
+    private String videoPath;
+    private double averageRating;
+    private String region;
+    private String coverImagePath;
     private String type;
 
-    // 构造函数
+
     public Video() {}
 
     public Video(int id, String title, String videoPath, double averageRating, String region, String coverImagePath, String type) {
