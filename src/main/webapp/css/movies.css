@@ -1,93 +1,172 @@
-/* 电影页面样式 */
+/* 基本样式 */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to right, #a8e6ff, #f3d6ff); /* 渐变背景 */
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
 
 /* 头部样式 */
 header {
-    background-color: #343A40;
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3); /* 活力渐变 */
     color: white;
     padding: 20px 0;
     text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+header:hover {
+    background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
 }
 
 header nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 header nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 header nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 header nav ul li a:hover {
-    text-decoration: underline;
+    color: #ff4500;
+    transform: scale(1.1);
 }
 
 /* 主体部分 */
 main {
     padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px); /* 背景虚化 */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: blue;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* 电影格 */
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* 4列布局 */
+    grid-template-columns: repeat(5, minmax(0, 1fr)); /* 每行显示5个项目 */
     gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
 }
+
 
 /* 电影项 */
 .movie-item {
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 悬浮时的效果 */
 .movie-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* 电影图片 */
 .movie-item img {
     width: 100%;
     height: auto;
-    object-fit: cover;  /* 保证图片充满容器且不失真 */
-    border-radius: 5px;
+    object-fit: cover;
+    border-radius: 16px;
 }
 
 /* 电影标题 */
 .movie-item h2 {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #1e90ff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* 电影描述 */
 .movie-item p {
     font-size: 14px;
-    color: #888;
+    color: #555;
+}
+
+/* 翻页按钮样式 */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #1e90ff, #ff4500);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1;
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    transform: scale(1.2);
+    background: linear-gradient(135deg, #ff4500, #ff7eb3);
+}
+
+.carousel-prev {
+    left: 15px;
+}
+
+.carousel-next {
+    right: 15px;
 }
 
 /* 页脚样式 */
 footer {
-    background-color: #343A40;
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3);
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+footer:hover {
+    background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .movie-grid {
+        grid-template-columns: repeat(5, 1fr); /* 每行显示五个项目 */
+    }
+}
+
+footer p {
+    color: white;
+}
+
+footer:hover {
+    background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
 }

@@ -50,7 +50,7 @@
 <main>
     <h1>筛选动漫</h1>
     <!-- 筛选表单 -->
-    <form method="get" action="FilteredAnimeServlet">
+    <form class="filters" method="get" action="FilteredAnimeServlet">
         <label for="region">地区:</label>
         <select name="region" id="region">
             <option value="all" <%= "all".equals(request.getAttribute("region")) ? "selected" : "" %>>所有地区</option>

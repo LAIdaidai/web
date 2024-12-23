@@ -1,132 +1,131 @@
 /* 全局样式 */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* 活泼的渐变背景 */
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column; /* 垂直排列 */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* 页面垂直居中 */
+    min-height: 100vh;
     color: #333;
 }
 
 /* 上传表单容器 */
 .upload-form-container {
     width: 100%;
-    max-width: 600px; /* 表单最大宽度 */
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px; /* 增加圆角效果 */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 更深的阴影 */
-    text-align: center; /* 内容居中 */
-    margin-bottom: 40px; /* 和页脚的间距 */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* 添加动画 */
+    max-width: 500px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 16px; /* 更柔和的圆角 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* 增强阴影 */
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .upload-form-container:hover {
-    transform: scale(1.02); /* 鼠标悬浮时稍微放大 */
-    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.15); /* 增强阴影效果 */
+    transform: translateY(-5px); /* 悬浮时提升容器 */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* 标题样式 */
 .upload-title {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: #3a3a3a;
-    letter-spacing: 1px; /* 添加字间距 */
+    font-size: 28px; /* 更大的字体 */
+    font-weight: 700; /* 加粗标题 */
+    margin-bottom: 20px;
+    color: #007bff; /* 明亮的蓝色标题 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* 细微的阴影 */
 }
 
 /* 标签和输入框样式 */
 .upload-form-container label {
-    display: block; /* 每个标签占一行 */
+    display: block;
     font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-weight: 600;
+    margin-bottom: 8px;
     color: #555;
-    text-align: left; /* 标签靠左对齐 */
-    transition: color 0.3s ease; /* 标签颜色过渡 */
+    text-align: left;
 }
 
 .upload-form-container input[type="text"],
 .upload-form-container select,
 .upload-form-container input[type="file"] {
-    width: 100%; /* 输入框宽度100% */
+    width: 80%;
     padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-bottom: 20px; /* 输入框下方的间距 */
-    background-color: #f9f9f9; /* 浅灰色背景 */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 输入框交互动画 */
+    font-size: 15px;
+    border: 2px solid #ddd; /* 更厚的边框 */
+    border-radius: 8px; /* 更柔和的圆角 */
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    color: #333;
 }
 
-/* 聚焦状态 */
 .upload-form-container input[type="text"]:focus,
 .upload-form-container select:focus,
 .upload-form-container input[type="file"]:focus {
-    border-color: #007bff; /* 聚焦时的边框颜色 */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 聚焦时的阴影 */
+    border-color: #007bff; /* 聚焦时的蓝色边框 */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
+    outline: none;
 }
 
 /* 按钮样式 */
 .upload-form-container button {
-    width: 100%; /* 按钮宽度与输入框一致 */
-    padding: 12px;
-    font-size: 18px;
-    font-weight: 600;
+    margin: 5px;
+    width: 100%;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* 按钮渐变色 */
     color: white;
     border: none;
-    border-radius: 6px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* 动画效果 */
-    margin-bottom: 10px; /* 按钮间距 */
+    transition: all 0.3s ease;
 }
 
 .upload-form-container button:hover {
-    background-color: #0056b3; /* 悬浮时变色 */
-    transform: translateY(-3px); /* 鼠标悬浮时按钮上移 */
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); /* 添加按钮悬浮阴影 */
-}
-
-.upload-form-container button:active {
-    transform: translateY(1px); /* 按下时按钮微微下移 */
-}
-
-/* 返回按钮样式 */
-.upload-form-container a button {
-    background-color: #6c757d;
-    margin-top: 10px;
-    width: 100%; /* 宽度一致 */
-}
-
-.upload-form-container a button:hover {
-    background-color: #5a6268; /* 悬浮时变色 */
+    background: linear-gradient(135deg, #5a0fbc, #1d66e3); /* 鼠标悬停时变暗 */
+    transform: scale(1.1); /* 悬停时放大 */
 }
 
 /* 页脚样式 */
 footer {
     text-align: center;
     font-size: 14px;
-    color: #777;
-    margin-top: 40px;
-    transition: color 0.3s ease; /* 页脚文字过渡 */
+    color: #555;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.7); /* 半透明背景 */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-footer:hover {
-    color: #555; /* 页脚悬浮时颜色变深 */
+/* 动效：提升用户体验 */
+.upload-form-container input::placeholder {
+    color: #aaa; /* 更柔和的占位符颜色 */
+    font-style: italic;
 }
 
-/* 响应式设计 */
+.upload-form-container input:hover::placeholder {
+    color: #555; /* 鼠标悬停时占位符变深 */
+}
+
 @media (max-width: 768px) {
+    /* 小屏幕优化 */
     .upload-form-container {
-        padding: 20px; /* 较小屏幕时的内边距 */
-        width: 90%; /* 屏幕小于768px时表单宽度为90% */
+        padding: 15px;
+    }
+
+    .upload-title {
+        font-size: 24px;
     }
 
     .upload-form-container button {
-        font-size: 16px; /* 较小屏幕时按钮字体变小 */
+        font-size: 14px;
+        padding: 10px;
     }
 }

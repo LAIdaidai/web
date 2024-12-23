@@ -1,54 +1,198 @@
 /* 基本样式 */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 更新字体 */
-    background-color: #f4f4f4;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to right, #a8e6ff, #f3d6ff); /* 渐变背景 */
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
 /* 头部样式 */
 header {
-    background-color: #333; /* 深色背景 */
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3); /* 活力渐变 */
     color: white;
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 增加顶部阴影 */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header:hover {
+    background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
 }
 
 header nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 header nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 header nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 header nav ul li a:hover {
-    text-decoration: underline;
-    color: #ff6347; /* 鼠标悬停时改变颜色 */
+    color: #ff4500;
+    transform: scale(1.1);
 }
-
+form{
+        color: black;
+}
 /* 主体部分 */
 main {
     padding: 20px;
     text-align: center;
+    backdrop-filter: blur(10px); /* 背景虚化 */
 }
 
 /* 标题样式 */
 h1 {
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 32px;
+    font-weight: bold;
+    color: blue;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* 更新 .filters 样式 */
+.filters {
+    margin: 20px 0; /* 上下间距 */
+    padding: 0; /* 取消内边距 */
+    background-color: transparent !important; /* 强制取消背景颜色 */
+    border: none; /* 取消边框 */
+    box-shadow: none !important;
+    text-align: left; /* 靠左对齐 */
+}
+
+/* 调整 .filters 内部元素样式 */
+.filters label {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #333; /* 文本颜色 */
+}
+
+.filters select {
+    padding: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 4px; /* 圆角保留 */
+    border: 1px solid #ccc; /* 边框 */
+    background-color: #fff; /* 保持选项背景为白色 */
     color: #333;
 }
-/* 筛选区域样式 */
+
+.filters button {
+    padding: 5px 10px;
+    background-color: #007bff; /* 按钮背景颜色 */
+    color: white;
+    border: none;
+    border-radius: 4px; /* 圆角保留 */
+    cursor: pointer;
+}
+
+.filters button:hover {
+    background-color: #0056b3; /* 鼠标悬停效果 */
+}
+
+
+/* 动漫列表区域样式 */
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 每行显示五个项目 */
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.anime-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anime-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+.anime-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+.anime-info h2 {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e90ff;
+}
+
+.anime-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* 翻页按钮样式 */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #1e90ff, #ff4500);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1;
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    transform: scale(1.2);
+    background: linear-gradient(135deg, #ff4500, #ff7eb3);
+}
+
+.carousel-prev {
+    left: 15px;
+}
+
+.carousel-next {
+    right: 15px;
+}
+
+/* 页脚样式 */
+footer {
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .filters {
+        flex-wrap: wrap;
+    }
+}
+
 .filters {
     margin: 20px 0;
     padding: 10px;
@@ -83,130 +227,10 @@ h1 {
     background-color: #0056b3;
 }
 
-/* 动漫列表区域样式 */
-.anime-grid {
-    max-width: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-
-.anime-item {
-    background-color: #fff;
-    padding: 8px; /* 减少内边距 */
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-
-.anime-item:hover {
-    transform: scale(1.05);
-}
-
-.anime-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-}
-
-.anime-info h2 {
-    margin-top: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-}
-
-.anime-info p {
-    font-size: 14px;
-    color: #666;
-}
-
-/* 翻页按钮样式 */
-.carousel-prev, .carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+footer p {
     color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    z-index: 1;
 }
 
-.carousel-prev {
-    left: 10px;
-}
-
-.carousel-next {
-    right: 10px;
-}
-
-/* 页脚样式 */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .anime-grid {
-        grid-template-columns: repeat(2, 1fr); /* 每行显示两列 */
-    }
-}
-
-@media (max-width: 480px) {
-    .anime-grid {
-        grid-template-columns: 1fr; /* 每行显示一列 */
-    }
-}
-
-
-/* 筛选表单样式 */
-form {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* 每个元素之间的间距 */
-    margin: 20px 0; /* 表单上下间距 */
-}
-
-form label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-}
-
-form select {
-    padding: 5px 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-}
-
-form button {
-    padding: 5px 15px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-form button:hover {
-    background-color: #0056b3;
+footer:hover {
+    background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
 }

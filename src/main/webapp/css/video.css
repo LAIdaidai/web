@@ -1,76 +1,116 @@
+#averageRating{
+    color:black;
+}
+h3{
+    color:black;
+}
 /* 评论区 */
 .comments {
     text-align: left;
     max-width: 800px;
     margin: 0 auto;
-    background-color: #fff;
+    background: linear-gradient(135deg, #a8e6ff, #f3d6ff); /* 活力渐变背景 */
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
 }
 
-.comments #submit-comment {
+/* 评论表单 */
+.comments form {
     margin-bottom: 20px;
-    background-color: #f9f9f9;
+    background: #ffffff; /* 纯白背景 */
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
 }
 
 .comments form:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 鼠标悬停时增加阴影 */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
 }
 
 .comments form textarea {
     width: 100%;
     height: 150px;
-    border-radius: 12px;
-    padding: 15px;
+    border-radius: 16px;
+    padding: 15px -10px 15px 15px; /* 上 右 下 左 */
     font-size: 16px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     resize: vertical;
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f7f7f7; /* 更柔和的背景色 */
+    background: #fef8e1;
     color: #333;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .comments form textarea:focus {
-    border-color: #4CAF50; /* 聚焦时边框变绿 */
-    box-shadow: 0 0 8px rgba(76, 175, 80, 0.2); /* 聚焦时添加阴影 */
+    border-color: #ff6ec4;
+    box-shadow: 0 0 12px rgba(255, 110, 196, 0.4);
 }
 
 .comments form textarea::placeholder {
-    color: #bbb;
+    color: #999;
     font-style: italic;
 }
 
-.comments form .submit {
-    background-color: #4CAF50;
+.comments form button {
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3);
     color: white;
     border: none;
     padding: 14px 30px;
     font-size: 16px;
-    border-radius: 12px;
+    border-radius: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
     display: inline-block;
-    width: 100%; /* 保证按钮在小屏幕下宽度为100% */
+    width: 100%;
     margin-top: 12px;
+    font-weight: bold;
 }
 
-.comments form .submit:hover {
-    background-color: #45a049;
-    transform: scale(1.05); /* 鼠标悬停时按钮略微放大 */
+.comments form button:hover {
+    background: linear-gradient(135deg, #ff4500, #ff7eb3);
+    transform: scale(1.1);
 }
 
-.comments form .submit:disabled {
-    background-color: #ccc;
+.comments form button:disabled {
+    background-color: #ddd;
     cursor: not-allowed;
 }
+
+/* 评论项 */
+.comment-item {
+    background: linear-gradient(135deg, #fff1eb, #ace0f9);
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.comment-item:hover {
+    transform: translateY(-3px);
+    background: #fef8e1;
+}
+
+.comment-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.comment-item small {
+    display: block;
+    margin-top: 8px;
+    color: #999;
+    font-size: 13px;
+    font-style: italic;
+}
+
 /* 评分区 */
 .stars {
     display: flex;
@@ -78,118 +118,64 @@
     margin-top: 20px;
 }
 
-/* 未选中的星星 */
 .star {
-    font-size: 36px; /* 星星大小 */
-    color: #bbb; /* 默认灰色 */
+    font-size: 40px;
+    color: #ddd;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
-/* 选中的星星 */
 .star.selected {
-    color: #FFD700; /* 选中时金黄色 */
+    color: #FFD700;
 }
 
-/* 鼠标悬停时的效果 */
 .star:hover {
-    color: #FFD700; /* 鼠标悬停时显示金黄色 */
+    color: #ff6ec4;
+    transform: scale(1.2);
 }
 
-/* 视频播放器 */
 /* 视频播放器 */
 #videoPlayer {
-    width: 100%;          /* 视频宽度最大为父容器宽度 */
-    max-width: 800px;     /* 限制最大宽度为 800px */
-    max-height: 450px;    /* 限制最大高度为 450px，避免过大 */
-    height: auto;         /* 高度自动，根据宽度保持比例 */
-    object-fit: contain;  /* 保持视频比例，内容填充区域并不裁剪 */
-    margin: 0 auto;       /* 水平居中 */
-    display: block;       /* 让视频块级显示 */
+    width: 100%;
+    max-width: 800px;
+    max-height: 450px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background-color: #000;
 }
 
-/* 如果视频尺寸太小，进行等比例放大 */
+/* 小屏幕下放大 */
 #videoPlayer.small {
-    object-fit: cover;    /* 填充整个容器区域，可能会裁剪 */
-    width: 100%;          /* 让视频宽度填充父容器 */
-    height: 100%;         /* 让视频高度填充父容器 */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    /* 评论区及表单 */
     .comments {
-        padding: 20px;  /* 小屏幕下减少padding */
+        padding: 20px;
     }
 
     .comments form {
-        padding: 15px;  /* 小屏幕下减少padding */
+        padding: 15px;
     }
 
     .comments form button {
-        padding: 12px 0; /* 按钮上下间距适配 */
-        font-size: 14px;  /* 按钮文字稍微减小 */
+        padding: 12px 0;
+        font-size: 14px;
     }
 
     .comments form textarea {
-        height: 120px;  /* 小屏幕下缩小文本框高度 */
+        height: 120px;
     }
 
-    /* 视频区域 */
     #videoPlayer {
-        max-width: 100%;    /* 确保视频在小屏幕下不超出屏幕 */
+        max-width: 100%;
     }
-}
-
-.comment-item:hover {
-    background-color: #f9f9f9;
-}
-
-.comment-item p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-    line-height: 1.5;
-}
-
-.comment-item small {
-    display: block;
-    margin-top: 8px;
-    color: #777;
-    font-size: 13px;
-}
-
-.comment-item {
-    display: flex; /* 使用 flex 布局 */
-    justify-content: space-between; /* 评论内容和删除按钮分别对齐两侧 */
-    align-items: center; /* 垂直居中对齐 */
-    background-color: #fff; /* 背景颜色 */
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-}
-
-.comment-text {
-    flex: 1; /* 评论内容占据剩余空间 */
-    margin-right: 10px; /* 和删除按钮之间留间距 */
-}
-
-.delete-button {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12px;
-    transition: background-color 0.3s ease; /* 添加渐变效果 */
-}
-
-.delete-button:hover {
-    background-color: #ff1a1a;
-}
-
-.delform{
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
 }
