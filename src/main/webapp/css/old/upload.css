@@ -52,7 +52,7 @@ body {
 .upload-form-container input[type="text"],
 .upload-form-container select,
 .upload-form-container input[type="file"] {
-    width: 80%;
+    width: 100%;
     padding: 12px;
     font-size: 15px;
     border: 2px solid #ddd; /* 更厚的边框 */

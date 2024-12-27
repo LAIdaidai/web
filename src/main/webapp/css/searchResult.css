@@ -1,13 +1,18 @@
-/* 基本样式 */
-body {
+/* 通用样式 */
+/* 由于一开始searchResult.jsp使用的是index.css，故将index.css复制粘贴过来，仅仅修改167行代码*/
+html, body {
+    height: 100%;
+    margin: 0;
     font-family: 'Poppins', Arial, sans-serif;
     background: linear-gradient(to right, #a8e6ff, #f3d6ff); /* 渐变背景 */
-    margin: 0;
-    padding: 0;
-    color: #333;
+    color: #fff;
 }
 
-
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
 /* 头部样式 */
 header {
@@ -18,11 +23,9 @@ header {
     position: relative;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
-
 header:hover {
     background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
 }
-
 header .logo {
     display: flex;
     align-items: center;
@@ -91,14 +94,64 @@ header nav ul li a:hover {
     transform: scale(1.1);
 }
 
-/* 主体部分 */
-main {
-    padding: 20px;
-    text-align: center;
-    backdrop-filter: blur(10px); /* 背景虚化 */
+/* 搜索框样式 */
+.search-box {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    right: 200px;
 }
 
-/* 标题样式 */
+.search-box input[type="text"] {
+    width: 200px;
+    padding: 8px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.search-box input[type="text"]::placeholder {
+    color: #ccc;
+}
+
+.search-box input[type="text"]:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.search-box button {
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.search-box button:hover {
+    background: linear-gradient(135deg, #ff735e, #f04997);
+    transform: scale(1.1);
+}
+
+/* 主页内容 */
+main {
+    flex-grow: 1;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+}
+
 h1 {
     margin-bottom: 20px;
     font-size: 32px;
@@ -106,30 +159,17 @@ h1 {
     color: blue;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-
-h2 {
-    margin-left: 30px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* 日期分组 */
-.date-group {
-    margin-top: 20px;
-    text-align: left;
+p {
+    color:black;
 }
 
 /* 视频网格 */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 每行最多显示5个 */
+    grid-template-columns: repeat(5, 1fr); /* 确保每行显示5个项目 */
     gap: 20px;
     margin-top: 20px;
     padding: 20px;
-    box-sizing: border-box;
 }
 
 /* 视频项 */
@@ -140,7 +180,7 @@ h2 {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
+
 }
 
 .video-item:hover {
@@ -161,7 +201,7 @@ h2 {
     color: black;
 }
 
-/* 页脚样式 */
+/* 底部样式 */
 footer {
     background: linear-gradient(135deg, #1e90ff, #ff7eb3); /* 活力渐变 */
     color: white;
@@ -169,15 +209,32 @@ footer {
     padding: 20px 0;
     font-size: 14px;
     font-weight: bold;
+    box-shadow: 0 -8px 15px rgba(0, 0, 0, 0.2);
+
 }
 
 footer:hover {
     background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr); /* 窄屏时每行最多显示2个 */
-    }
+footer p {
+    color: white;
+}
+
+/* 上传按钮样式 */
+.upload-button {
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3); /* 活力渐变 */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.upload-button:hover {
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3); /* 活力渐变 */
+    transform: scale(1.1);
 }

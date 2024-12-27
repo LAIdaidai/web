@@ -6,26 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>用户注册</title>
     <link rel="stylesheet" href="css/register.css">
-    <script>
-        // 表单验证函数
-        function validateForm() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirmPassword").value;
 
-            if (username === "" || password === "" || confirmPassword === "") {
-                alert("所有字段均为必填项！");
-                return false;
-            }
-
-            if (password !== confirmPassword) {
-                alert("两次输入的密码不一致！");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
 </head>
 <body>
 
@@ -91,5 +72,6 @@
     <p>&copy; 2024 白嫖动漫我最爽。版权所有。</p>
 </footer>
 
+<script src="js/register.js"></script>
 </body>
 </html>

@@ -19,10 +19,6 @@ header {
     z-index: 1000;
 }
 
-header:hover {
-    background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
-}
-
 header nav ul {
     list-style: none;
     padding: 0;
@@ -64,51 +60,61 @@ h1 {
     color: blue;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-/* 更新 .filters 样式 */
+
+/* 筛选区域样式 */
 .filters {
-    margin: 20px 0; /* 上下间距 */
-    padding: 0; /* 取消内边距 */
-    background-color: transparent !important; /* 强制取消背景颜色 */
-    border: none; /* 取消边框 */
-    box-shadow: none !important;
-    text-align: left; /* 靠左对齐 */
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 90%;
+    background: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+    border-radius: 16px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
 }
 
-/* 调整 .filters 内部元素样式 */
 .filters label {
     margin-right: 10px;
     font-size: 14px;
-    color: #333; /* 文本颜色 */
-}
-
-.filters select {
-    padding: 5px;
-    font-size: 14px;
-    margin-right: 10px;
-    border-radius: 4px; /* 圆角保留 */
-    border: 1px solid #ccc; /* 边框 */
-    background-color: #fff; /* 保持选项背景为白色 */
+    font-weight: bold;
     color: #333;
 }
 
+.filters select {
+    padding: 10px;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: box-shadow 0.3s ease;
+}
+
+.filters select:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .filters button {
-    padding: 5px 10px;
-    background-color: #007bff; /* 按钮背景颜色 */
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3);
     color: white;
     border: none;
-    border-radius: 4px; /* 圆角保留 */
+    border-radius: 12px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .filters button:hover {
-    background-color: #0056b3; /* 鼠标悬停效果 */
+    background: linear-gradient(135deg, #ff4500, #ff7eb3);
+    transform: scale(1.1);
 }
-
 
 /* 动漫列表区域样式 */
 .anime-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 每行显示五个项目 */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 自适应列宽 */
     gap: 20px;
     padding: 20px;
     box-sizing: border-box;
@@ -191,46 +197,4 @@ footer {
     .filters {
         flex-wrap: wrap;
     }
-}
-
-.filters {
-    margin: 20px 0;
-    padding: 10px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.filters label {
-    margin-right: 10px;
-    font-size: 14px;
-}
-
-.filters select {
-    padding: 5px;
-    font-size: 14px;
-    margin-right: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-.filters button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.filters button:hover {
-    background-color: #0056b3;
-}
-
-footer p {
-    color: white;
-}
-
-footer:hover {
-    background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
 }

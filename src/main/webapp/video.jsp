@@ -317,11 +317,11 @@
         const commentText = document.getElementById("commentText").value.trim();
 
         if (commentText === "") {
-            alert("评论内容不能为空喵~");  // 提示用户评论不能为空
-            return false;  // 阻止表单提交
+            alert("评论内容不能为空喵~");
+            return false;
         }
 
-        return true;  // 允许表单提交
+        return true;
     }
 
 </script>

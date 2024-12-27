@@ -17,6 +17,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background 0.3s ease;
 }
 
 header:hover {
@@ -46,9 +47,7 @@ header nav ul li a:hover {
     color: #ff4500;
     transform: scale(1.1);
 }
-form{
-        color: black;
-}
+
 /* 主体部分 */
 main {
     padding: 20px;
@@ -56,7 +55,6 @@ main {
     backdrop-filter: blur(10px); /* 背景虚化 */
 }
 
-/* 标题样式 */
 h1 {
     margin-bottom: 20px;
     font-size: 32px;
@@ -64,84 +62,52 @@ h1 {
     color: blue;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-/* 更新 .filters 样式 */
-.filters {
-    margin: 20px 0; /* 上下间距 */
-    padding: 0; /* 取消内边距 */
-    background-color: transparent !important; /* 强制取消背景颜色 */
-    border: none; /* 取消边框 */
-    box-shadow: none !important;
-    text-align: left; /* 靠左对齐 */
-}
 
-/* 调整 .filters 内部元素样式 */
-.filters label {
-    margin-right: 10px;
-    font-size: 14px;
-    color: #333; /* 文本颜色 */
-}
-
-.filters select {
-    padding: 5px;
-    font-size: 14px;
-    margin-right: 10px;
-    border-radius: 4px; /* 圆角保留 */
-    border: 1px solid #ccc; /* 边框 */
-    background-color: #fff; /* 保持选项背景为白色 */
-    color: #333;
-}
-
-.filters button {
-    padding: 5px 10px;
-    background-color: #007bff; /* 按钮背景颜色 */
-    color: white;
-    border: none;
-    border-radius: 4px; /* 圆角保留 */
-    cursor: pointer;
-}
-
-.filters button:hover {
-    background-color: #0056b3; /* 鼠标悬停效果 */
-}
-
-
-/* 动漫列表区域样式 */
-.anime-grid {
+/* 电影格 */
+.movie-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 每行显示五个项目 */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 自适应列宽 */
     gap: 20px;
     padding: 20px;
     box-sizing: border-box;
 }
 
-.anime-item {
+/* 电影项 */
+.movie-item {
     background: rgba(255, 255, 255, 0.9);
     padding: 16px;
     border-radius: 16px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
-.anime-item:hover {
+.movie-item:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色渐变 */
 }
 
-.anime-item img {
+/* 电影图片 */
+.movie-item img {
     width: 100%;
     height: auto;
+    object-fit: cover;
     border-radius: 16px;
 }
 
-.anime-info h2 {
-    margin-top: 10px;
+/* 电影标题 */
+.movie-item h2 {
     font-size: 20px;
+    margin-top: 10px;
     font-weight: bold;
     color: #1e90ff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.anime-info p {
+/* 电影描述 */
+.movie-item p {
     font-size: 14px;
     color: #555;
 }
@@ -184,53 +150,16 @@ footer {
     padding: 20px 0;
     font-size: 14px;
     font-weight: bold;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .filters {
-        flex-wrap: wrap;
-    }
-}
-
-.filters {
-    margin: 20px 0;
-    padding: 10px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.filters label {
-    margin-right: 10px;
-    font-size: 14px;
-}
-
-.filters select {
-    padding: 5px;
-    font-size: 14px;
-    margin-right: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-.filters button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.filters button:hover {
-    background-color: #0056b3;
-}
-
-footer p {
-    color: white;
+    transition: background 0.3s ease;
 }
 
 footer:hover {
     background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .movie-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 更窄的列 */
+    }
 }
