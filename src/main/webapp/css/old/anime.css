@@ -1,0 +1,200 @@
+/* 基本样式 */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to right, #a8e6ff, #f3d6ff); /* 渐变背景 */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* 头部样式 */
+header {
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3); /* 活力渐变 */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+header nav ul li a:hover {
+    color: #ff4500;
+    transform: scale(1.1);
+}
+form{
+        color: black;
+}
+/* 主体部分 */
+main {
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px); /* 背景虚化 */
+}
+
+/* 标题样式 */
+h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: blue;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 筛选区域样式 */
+.filters {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 90%;
+    background: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+    border-radius: 16px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+.filters label {
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.filters select {
+    padding: 10px;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: box-shadow 0.3s ease;
+}
+
+.filters select:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filters button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.filters button:hover {
+    background: linear-gradient(135deg, #ff4500, #ff7eb3);
+    transform: scale(1.1);
+}
+
+/* 动漫列表区域样式 */
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 自适应列宽 */
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.anime-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anime-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+.anime-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+.anime-info h2 {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e90ff;
+}
+
+.anime-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* 翻页按钮样式 */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #1e90ff, #ff4500);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1;
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    transform: scale(1.2);
+    background: linear-gradient(135deg, #ff4500, #ff7eb3);
+}
+
+.carousel-prev {
+    left: 15px;
+}
+
+.carousel-next {
+    right: 15px;
+}
+
+/* 页脚样式 */
+footer {
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .filters {
+        flex-wrap: wrap;
+    }
+}

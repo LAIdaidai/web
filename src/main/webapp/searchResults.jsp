@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>搜索结果</title>
-    <link rel="stylesheet" href="css/searchResult.css">
+    <link rel="stylesheet" href="css/history.css">
+    <link rel="">
 </head>
 <body>
 <header>

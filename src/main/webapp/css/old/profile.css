@@ -1,0 +1,198 @@
+/* 基本样式 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ecf0f1; /* 使用浅灰背景，现代感十足 */
+    color: #2c3e50;
+}
+
+/* 头部样式 */
+header {
+    background-color: #3498db; /* 改为清新的蓝色 */
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 更加深邃的阴影效果 */
+    transition: background-color 0.3s ease;
+}
+
+header:hover {
+    background-color: #2980b9; /* 鼠标悬停时背景颜色变深 */
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header .logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 增加光晕效果 */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #f39c12; /* 鼠标悬停时切换为明亮的橙色 */
+    text-decoration: underline;
+}
+
+/* 主体部分 */
+main {
+    padding: 50px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    transition: transform 0.3s ease-in-out;
+}
+
+main:hover {
+    transform: scale(1.02); /* 鼠标悬停时放大效果 */
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.profile-header h1 {
+    font-size: 36px;
+    color: #3498db;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.profile-header p {
+    font-size: 18px;
+    color: #7f8c8d;
+}
+
+/* 个人信息区 */
+.profile-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 25px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-info:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.avatar-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #f39c12; /* 添加橙色边框，吸引视线 */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* 增加头像的阴影 */
+}
+
+.profile-details {
+    flex: 2;
+    padding-left: 25px;
+}
+
+.profile-details h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.profile-details p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #7f8c8d;
+    letter-spacing: 0.5px;
+}
+
+/* 底部样式 */
+footer {
+    background-color: #3498db; /* 保持一致的蓝色 */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 16px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+footer:hover {
+    background-color: #2980b9; /* 鼠标悬停时蓝色变深 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    main {
+        padding: 30px 15px;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .avatar-container {
+        margin-bottom: 20px;
+    }
+
+    .profile-details {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .profile-details h2 {
+        font-size: 24px;
+    }
+
+    .profile-details p {
+        font-size: 16px;
+    }
+}

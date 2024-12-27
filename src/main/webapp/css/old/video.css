@@ -1,0 +1,181 @@
+#averageRating{
+    color:black;
+}
+h3{
+    color:black;
+}
+/* 评论区 */
+.comments {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #a8e6ff, #f3d6ff); /* 活力渐变背景 */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 评论表单 */
+.comments form {
+    margin-bottom: 20px;
+    background: #ffffff; /* 纯白背景 */
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.comments form:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+.comments form textarea {
+    width: 100%;
+    height: 150px;
+    border-radius: 16px;
+    padding: 15px -10px 15px 15px; /* 上 右 下 左 */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: #fef8e1;
+    color: #333;
+    line-height: 1.6;
+}
+
+.comments form textarea:focus {
+    border-color: #ff6ec4;
+    box-shadow: 0 0 12px rgba(255, 110, 196, 0.4);
+}
+
+.comments form textarea::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.comments form button {
+    background: linear-gradient(135deg, #1e90ff, #ff7eb3);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 16px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 100%;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.comments form button:hover {
+    background: linear-gradient(135deg, #ff4500, #ff7eb3);
+    transform: scale(1.1);
+}
+
+.comments form button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* 评论项 */
+.comment-item {
+    background: linear-gradient(135deg, #fff1eb, #ace0f9);
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.comment-item:hover {
+    transform: translateY(-3px);
+    background: #fef8e1;
+}
+
+.comment-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.comment-item small {
+    display: block;
+    margin-top: 8px;
+    color: #999;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* 评分区 */
+.stars {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.star {
+    font-size: 40px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.star.selected {
+    color: #FFD700;
+}
+
+.star:hover {
+    color: #ff6ec4;
+    transform: scale(1.2);
+}
+
+/* 视频播放器 */
+#videoPlayer {
+    width: 100%;
+    max-width: 800px;
+    max-height: 450px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background-color: #000;
+}
+
+/* 小屏幕下放大 */
+#videoPlayer.small {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .comments {
+        padding: 20px;
+    }
+
+    .comments form {
+        padding: 15px;
+    }
+
+    .comments form button {
+        padding: 12px 0;
+        font-size: 14px;
+    }
+
+    .comments form textarea {
+        height: 120px;
+    }
+
+    #videoPlayer {
+        max-width: 100%;
+    }
+}

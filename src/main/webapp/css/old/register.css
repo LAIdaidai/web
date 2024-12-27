@@ -1,0 +1,179 @@
+/* 重置默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 设置页面的基本字体和背景 */
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 更现代的字体 */
+    background: linear-gradient(135deg, #ff7b8f, #f2d0a9); /* 活力渐变背景，柔和的粉色和金色渐变 */
+    color: #222;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease; /* 平滑过渡效果 */
+}
+
+/* 头部导航栏样式 */
+header {
+    background: linear-gradient(135deg, #ff8a00, #ff5f6d); /* 活力渐变背景 */
+    color: white;
+    padding: 25px 25px 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+header:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15px;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 12px;
+    box-shadow: 0 4px 10px rgba(255, 94, 111, 0.3); /* 炫酷的光晕效果 */
+}
+
+/* 主体内容样式 */
+/* 主体内容样式 */
+main {
+    padding: 50px;
+    width: 100%;
+    max-width: 450px;
+    margin: 60px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* 卡片感加深 */
+    animation: slideUp 0.8s ease-out; /* 动画效果 */
+}
+
+
+
+
+/* 表单部分 */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #444;
+    font-size: 16px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background: #fafafa;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #ff8a00; /* 聚焦时改为活泼的橙色 */
+    box-shadow: 0 0 12px rgba(255, 138, 0, 0.2);
+    outline: none;
+}
+
+/* 登录按钮样式 */
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #ff8a00, #ff5f6d); /* 渐变按钮 */
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #ff5f6d, #ff4157); /* 鼠标悬浮时颜色加深 */
+    transform: scale(1.05); /* 按钮放大效果 */
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98); /* 点击时缩小按钮 */
+}
+
+/* 链接样式 */
+a {
+    color: #ff8a00; /* 活泼橙色 */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff5f6d; /* 鼠标悬浮时颜色变化 */
+    text-decoration: underline;
+}
+
+/* 底部样式 */
+footer {
+    background: linear-gradient(135deg, #ff8a00, #ff5f6d); /* 渐变页脚背景 */
+    color: white;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 14px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 动画效果 */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    main {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    button[type="submit"] {
+        font-size: 16px;
+        padding: 12px;
+    }
+}

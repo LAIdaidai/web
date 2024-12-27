@@ -1,0 +1,131 @@
+/* 全局样式 */
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* 活泼的渐变背景 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* 上传表单容器 */
+.upload-form-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 16px; /* 更柔和的圆角 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* 增强阴影 */
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upload-form-container:hover {
+    transform: translateY(-5px); /* 悬浮时提升容器 */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* 标题样式 */
+.upload-title {
+    font-size: 28px; /* 更大的字体 */
+    font-weight: 700; /* 加粗标题 */
+    margin-bottom: 20px;
+    color: #007bff; /* 明亮的蓝色标题 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* 细微的阴影 */
+}
+
+/* 标签和输入框样式 */
+.upload-form-container label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+    text-align: left;
+}
+
+.upload-form-container input[type="text"],
+.upload-form-container select,
+.upload-form-container input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 2px solid #ddd; /* 更厚的边框 */
+    border-radius: 8px; /* 更柔和的圆角 */
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.upload-form-container input[type="text"]:focus,
+.upload-form-container select:focus,
+.upload-form-container input[type="file"]:focus {
+    border-color: #007bff; /* 聚焦时的蓝色边框 */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
+    outline: none;
+}
+
+/* 按钮样式 */
+.upload-form-container button {
+    margin: 5px;
+    width: 100%;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* 按钮渐变色 */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-form-container button:hover {
+    background: linear-gradient(135deg, #5a0fbc, #1d66e3); /* 鼠标悬停时变暗 */
+    transform: scale(1.1); /* 悬停时放大 */
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.7); /* 半透明背景 */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 动效：提升用户体验 */
+.upload-form-container input::placeholder {
+    color: #aaa; /* 更柔和的占位符颜色 */
+    font-style: italic;
+}
+
+.upload-form-container input:hover::placeholder {
+    color: #555; /* 鼠标悬停时占位符变深 */
+}
+
+@media (max-width: 768px) {
+    /* 小屏幕优化 */
+    .upload-form-container {
+        padding: 15px;
+    }
+
+    .upload-title {
+        font-size: 24px;
+    }
+
+    .upload-form-container button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

@@ -181,3 +181,53 @@ footer:hover {
         grid-template-columns: repeat(2, 1fr); /* 窄屏时每行最多显示2个 */
     }
 }
+
+
+/* 搜索框样式 */
+.search-box {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    right: 200px;
+}
+
+.search-box input[type="text"] {
+    width: 200px;
+    padding: 8px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.search-box input[type="text"]::placeholder {
+    color: #ccc;
+}
+
+.search-box input[type="text"]:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.search-box button {
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.search-box button:hover {
+    background: linear-gradient(135deg, #ff735e, #f04997);
+    transform: scale(1.1);
+}
