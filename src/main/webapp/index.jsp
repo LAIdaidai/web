@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.movieplaystation.Video" %>
 
 <!DOCTYPE html>
 <html lang="zh">
@@ -22,7 +24,7 @@
   </div>
   <nav>
     <ul>
-      <li><a href="index.jsp">首页</a></li>
+      <li><a href="TopRatedVideosServlet">首页</a></li>
       <li><a href="movieList">电影</a></li>
       <li><a href="FilteredAnimeServlet">动漫</a></li>
       <li><a href="profile.jsp">个人主页</a></li>
@@ -70,23 +72,25 @@
 <main>
   <h1>欢迎来到白嫖动漫我最爽首页</h1>
   <p>这里是电影、电视剧、动漫的播放平台。请选择你感兴趣的内容。</p>
+
+  <h2>推荐观看</h2>
   <div class="video-grid">
-    <div class="video-item" onclick="goToVideo(1)">
-      <img src="${pageContext.request.contextPath}/images/仙逆.jpg" alt="电影1">
-      <p>仙逆</p>
+    <%
+      List<Video> topRatedVideos = (List<Video>) request.getAttribute("topRatedVideos");
+      if (topRatedVideos != null && !topRatedVideos.isEmpty()) {
+        for (Video video : topRatedVideos) {
+    %>
+    <div class="video-item" onclick="goToVideo(<%= video.getId() %>)">
+      <img src="<%= video.getCoverImagePath() %>" alt="<%= video.getTitle() %>">
+      <p><%= video.getTitle() %></p>
+      <p>评分: <%= video.getAverageRating() %></p>
     </div>
-    <div class="video-item" onclick="goToVideo(2)">
-      <img src="${pageContext.request.contextPath}/images/剑来.jpg" alt="电影2">
-      <p>剑来</p>
-    </div>
-    <div class="video-item" onclick="goToVideo(3)">
-      <img src="${pageContext.request.contextPath}/images/斗破苍穹.png" alt="电影4">
-      <p>斗破苍穹</p>
-    </div>
-    <div class="video-item" onclick="goToVideo(4)">
-      <img src="${pageContext.request.contextPath}/images/吞噬星空剧场版%20血洛大陆.jpg" alt="电影3">
-      <p>吞噬星空剧场版 血洛大陆</p>
-    </div>
+    <%
+      }
+    } else {
+    %>
+    <p>暂时没有评分最高的视频。</p>
+    <% } %>
   </div>
 </main>
 

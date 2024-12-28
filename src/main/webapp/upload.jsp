@@ -15,7 +15,7 @@
 %>
 <script>
     alert("非法访问！请登录管理员账户。");
-    window.location.href = "index.jsp";
+    window.location.href = "TopRatedVideosServlet";
 </script>
 <%
         return;}
@@ -51,7 +51,7 @@
 
         <button type="submit">提交上传</button>
     </form>
-    <a href="index.jsp">
+    <a href="TopRatedVideosServlet">
         <button type="button">返回</button>
     </a>
 </div>

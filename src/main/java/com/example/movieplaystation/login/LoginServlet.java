@@ -40,10 +40,9 @@ public class LoginServlet extends HttpServlet {
 
             // 判断是否找到匹配的用户
             if (resultSet.next()) {
-                // 登录成功，跳转到 index.jsp
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("TopRatedVideosServlet");
             } else {
                 // 登录失败，返回错误信息
                 request.setAttribute("errorMessage", "用户名或密码错误");

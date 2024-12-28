@@ -49,6 +49,6 @@ public class UploadServlet extends HttpServlet {
         }
 
         // 重定向到首页
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("TopRatedVideosServlet");
     }
 }
