@@ -33,7 +33,7 @@ build/
 
 
 ### Database Settings ###
-db.properties
+src/main/resources/db.properties
 
 ### VS Code ###
 .vscode/
