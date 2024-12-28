@@ -1,5 +1,7 @@
-package com.example.movieplaystation;
+package com.example.movieplaystation.page;
 
+import com.example.movieplaystation.JDBCUtils;
+import com.example.movieplaystation.Video;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

@@ -77,7 +77,7 @@
                 <input type="hidden" name="searchBy" value="<%= request.getAttribute("searchBy") %>" />
                 <button type="submit" class="delete-button">删除视频</button>
             </form>
-            <% } %>  <!-- 结束管理员判断 -->
+            <% } %>
         </div>
         <%
             }
