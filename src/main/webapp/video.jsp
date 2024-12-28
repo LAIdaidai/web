@@ -234,6 +234,15 @@
 
 <script>
     function setRating(star) {
+        // 获取当前用户
+        const username = "<%= session.getAttribute("username") != null ? session.getAttribute("username") : "匿名" %>";
+
+        // 检查是否为匿名用户
+        if (username === '匿名') {
+            alert('请登录后评分！');
+            return;
+        }
+
         let ratingMessage = '';
         let ratingValue = 2 * star; // 每颗星2分
         switch (star) {
@@ -270,9 +279,6 @@
         const urlParams = new URLSearchParams(window.location.search);
         const videoId = urlParams.get('videoId');
 
-        // 获取当前用户
-        const username = "<%= session.getAttribute("username") != null ? session.getAttribute("username") : "匿名" %>";
-
         // 调用Ajax提交评分
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "RateServlet", true);
@@ -292,6 +298,7 @@
         };
         xhr.send("videoId=" + videoId + "&username=" + username + "&rating=" + ratingValue);
     }
+
     // 鼠标悬停效果
     document.querySelectorAll(".star").forEach((starElement, index) => {
         starElement.addEventListener("mouseenter", function() {

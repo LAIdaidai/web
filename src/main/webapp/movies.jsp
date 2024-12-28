@@ -33,8 +33,17 @@
     </nav>
     <div class="search-box">
         <form action="SearchServlet" method="POST">
-            <input type="text" name="searchQuery" placeholder="搜索动漫、电影..." />
+            <!-- 输入框 -->
+            <div id="searchFields">
+                <input type="text" id="searchQuery" name="searchQuery" placeholder="请输入搜索内容..." />
+            </div>
             <button type="submit">搜索</button>
+            <!-- 搜索方式选择 -->
+            <select id="searchBy" name="searchBy" onchange="toggleSearchFields()">
+                <option value="title">按名称搜索</option>
+                <option value="category">按类别搜索</option>
+                <option value="region">按地区搜索</option>
+            </select>
         </form>
     </div>
     <div class="user-info">
@@ -89,5 +98,6 @@
 <footer>
     <p>&copy; 2024 白嫖动漫我最爽。版权所有。</p>
 </footer>
+<script src="js/search.js"></script>
 </body>
 </html>

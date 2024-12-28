@@ -1,13 +1,17 @@
-/* 基本样式 */
-body {
+/* 通用样式 */
+html, body {
+    height: 100%;
+    margin: 0;
     font-family: 'Poppins', Arial, sans-serif;
     background: linear-gradient(to right, #a8e6ff, #f3d6ff); /* 渐变背景 */
-    margin: 0;
-    padding: 0;
-    color: #333;
+    color: #fff;
 }
 
-
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
 /* 头部样式 */
 header {
@@ -91,14 +95,102 @@ header nav ul li a:hover {
     transform: scale(1.1);
 }
 
-/* 主体部分 */
-main {
-    padding: 20px;
-    text-align: center;
-    backdrop-filter: blur(10px); /* 背景虚化 */
+/* 搜索框整体容器 */
+.search-box {
+    display: flex; /* 使用flex布局 */
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 120px;
+    max-width: 450px;
+    width: 100%; /* 保证容器能够自适应 */
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 柔和阴影 */
+    backdrop-filter: blur(10px); /* 模糊效果 */
+    gap: 10px;
 }
 
-/* 标题样式 */
+/* 让form元素也使用flex布局 */
+.search-box form {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    width: 100%; /* 使form宽度占满容器 */
+    gap: 10px; /* 子元素之间的间隔 */
+}
+
+/* 输入框样式 */
+.search-box input[type="text"] {
+    width: 200px;
+    padding: 10px 15px;
+    border: 2px solid #ff92a9; /* 边框改为主题粉色调 */
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.9); /* 淡白背景 */
+    color: #333; /* 输入文字颜色 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 输入框占位符 */
+.search-box input[type="text"]::placeholder {
+    color: #aaa; /* 灰色占位符 */
+}
+
+/* 输入框聚焦样式 */
+.search-box input[type="text"]:focus {
+    border-color: #ff735e; /* 聚焦时边框为主题橙粉色 */
+    box-shadow: 0 4px 8px rgba(255, 115, 94, 0.3);
+    outline: none;
+}
+
+/* 按钮样式 */
+.search-box button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff735e, #f04997); /* 按钮渐变色 */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(240, 73, 151, 0.3); /* 按钮阴影 */
+}
+
+/* 按钮悬停样式 */
+.search-box button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(240, 73, 151, 0.5);
+}
+
+/* 筛选框样式 */
+.search-box select {
+    padding: 10px 15px;
+    border: 2px solid #ff92a9; /* 边框与输入框一致 */
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* 淡白背景 */
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 筛选框聚焦样式 */
+.search-box select:focus {
+    border-color: #f04997; /* 聚焦时边框为主题紫色 */
+    box-shadow: 0 4px 8px rgba(240, 73, 151, 0.3);
+    outline: none;
+}
+
+/* 主页内容 */
+main {
+    flex-grow: 1;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+}
+
 h1 {
     margin-bottom: 20px;
     font-size: 32px;
@@ -107,29 +199,31 @@ h1 {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-h2 {
-    margin-left: 30px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* 日期分组 */
-.date-group {
-    margin-top: 20px;
-    text-align: left;
+p {
+    color:black;
 }
 
 /* 视频网格 */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 每行最多显示5个 */
+    grid-template-columns: repeat(5, 1fr); /* 每行显示 5 列 */
     gap: 20px;
     margin-top: 20px;
     padding: 20px;
-    box-sizing: border-box;
+}
+
+/* 屏幕宽度小于768px时，每行显示 3 个视频 */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(3, 1fr); /* 中等屏幕显示 3 列 */
+    }
+}
+
+/* 屏幕宽度小于480px时，每行显示 1 个视频 */
+@media (max-width: 480px) {
+    .video-grid {
+        grid-template-columns: 1fr; /* 小屏幕显示 1 列 */
+    }
 }
 
 /* 视频项 */
@@ -140,7 +234,6 @@ h2 {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
 }
 
 .video-item:hover {
@@ -160,8 +253,30 @@ h2 {
     font-size: 14px;
     color: black;
 }
+/* 删除按钮样式 */
+.delete-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
 
-/* 页脚样式 */
+/* 鼠标悬停时 */
+.delete-button:hover {
+    background-color: #ff1a1a; /* 悬停时颜色变深 */
+    transform: scale(1.05);     /* 按钮稍微放大 */
+}
+
+/* 鼠标点击时 */
+.delete-button:active {
+    transform: scale(0.98);     /* 按钮点击时稍微缩小 */
+}
+
+/* 底部样式 */
 footer {
     background: linear-gradient(135deg, #1e90ff, #ff7eb3); /* 活力渐变 */
     color: white;
@@ -169,65 +284,17 @@ footer {
     padding: 20px 0;
     font-size: 14px;
     font-weight: bold;
+    box-shadow: 0 -8px 15px rgba(0, 0, 0, 0.2);
 }
 
-footer:hover {
-    background: linear-gradient(135deg, #ff7eb3, #1e90ff); /* 悬停时背景色反转 */
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr); /* 窄屏时每行最多显示2个 */
-    }
-}
-
-
-/* 搜索框样式 */
-.search-box {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 80px;
-    right: 200px;
-}
-
-.search-box input[type="text"] {
-    width: 200px;
-    padding: 8px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 20px;
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-.search-box input[type="text"]::placeholder {
-    color: #ccc;
-}
-
-.search-box input[type="text"]:focus {
-    background-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    outline: none;
-}
-
-.search-box button {
-    padding: 8px 12px;
-    background: linear-gradient(135deg, #ff512f, #dd2476);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    font-size: 14px;
+footer a {
+    color: #ffe04d;
+    text-decoration: none;
     font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.search-box button:hover {
-    background: linear-gradient(135deg, #ff735e, #f04997);
+footer a:hover {
+    color: #ffdf80; /* 柔和黄色 */
     transform: scale(1.1);
 }

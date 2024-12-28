@@ -95,53 +95,91 @@ header nav ul li a:hover {
     transform: scale(1.1);
 }
 
-/* 搜索框样式 */
+/* 搜索框整体容器 */
 .search-box {
-    display: flex;
+    display: flex; /* 使用flex布局 */
     align-items: center;
     position: absolute;
-    top: 80px;
-    right: 200px;
+    top: 70px;
+    right: 120px;
+    max-width: 450px;
+    width: 100%; /* 保证容器能够自适应 */
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 柔和阴影 */
+    backdrop-filter: blur(10px); /* 模糊效果 */
+    gap: 10px;
 }
 
+/* 让form元素也使用flex布局 */
+.search-box form {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    width: 100%; /* 使form宽度占满容器 */
+    gap: 10px; /* 子元素之间的间隔 */
+}
+
+/* 输入框样式 */
 .search-box input[type="text"] {
     width: 200px;
-    padding: 8px;
-    margin-right: 10px;
-    border: none;
+    padding: 10px 15px;
+    border: 2px solid #ff92a9; /* 边框改为主题粉色调 */
     border-radius: 20px;
     font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9); /* 淡白背景 */
+    color: #333; /* 输入文字颜色 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* 输入框占位符 */
 .search-box input[type="text"]::placeholder {
-    color: #ccc;
+    color: #aaa; /* 灰色占位符 */
 }
 
+/* 输入框聚焦样式 */
 .search-box input[type="text"]:focus {
-    background-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: #ff735e; /* 聚焦时边框为主题橙粉色 */
+    box-shadow: 0 4px 8px rgba(255, 115, 94, 0.3);
     outline: none;
 }
 
+/* 按钮样式 */
 .search-box button {
-    padding: 8px 12px;
-    background: linear-gradient(135deg, #ff512f, #dd2476);
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff735e, #f04997); /* 按钮渐变色 */
     color: white;
     border: none;
     border-radius: 20px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(240, 73, 151, 0.3); /* 按钮阴影 */
 }
 
+/* 按钮悬停样式 */
 .search-box button:hover {
-    background: linear-gradient(135deg, #ff735e, #f04997);
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(240, 73, 151, 0.5);
+}
+
+/* 筛选框样式 */
+.search-box select {
+    padding: 10px 15px;
+    border: 2px solid #ff92a9; /* 边框与输入框一致 */
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* 淡白背景 */
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 筛选框聚焦样式 */
+.search-box select:focus {
+    border-color: #f04997; /* 聚焦时边框为主题紫色 */
+    box-shadow: 0 4px 8px rgba(240, 73, 151, 0.3);
+    outline: none;
 }
 
 /* 主页内容 */
