@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -8,6 +9,18 @@
     <link rel="stylesheet" href="css/upload.css">
 </head>
 <body>
+<%
+    String username = (String) session.getAttribute("username");
+    if (username == null || !"admin".equals(username)) {
+%>
+<script>
+    alert("非法访问！请登录管理员账户。");
+    window.location.href = "index.jsp";
+</script>
+<%
+        return;}
+%>
+
 <h1>上传视频</h1>
 <div class="upload-form-container">
     <form action="UploadServlet" method="post" enctype="multipart/form-data">

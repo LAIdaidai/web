@@ -196,7 +196,6 @@
                 </div>
                 <!-- 右侧删除按钮（仅管理员可见） -->
                 <%
-                    String userRole = (String) session.getAttribute("role");
                     if ("admin".equals(username)) {
                 %>
                 <form action="DeleteCommentServlet" method="POST" class="delform">
