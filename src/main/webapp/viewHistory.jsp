@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>观看历史</title>
     <link rel="stylesheet" href="css/history.css">
-
-
 </head>
 <body>
 <header>
@@ -38,12 +36,8 @@
     <p>您没有观看任何历史记录。</p>
     <%
     } else {
-        // 按日期降序排序
-        List<Map.Entry<String, List<History>>> sortedEntries = new ArrayList<>(groupedHistory.entrySet());
-        sortedEntries.sort((e1, e2) -> e2.getKey().compareTo(e1.getKey())); // 按日期降序排列
-
         // 遍历每个日期分组
-        for (Map.Entry<String, List<History>> entry : sortedEntries) {
+        for (Map.Entry<String, List<History>> entry : groupedHistory.entrySet()) {
             String date = entry.getKey();
             List<History> historyList = entry.getValue();
     %>
@@ -51,9 +45,6 @@
         <h2><%= date %></h2>
         <div class="video-grid">
             <%
-                // 按播放时间排序
-                historyList.sort((h1, h2) -> h2.getPlayTime().compareTo(h1.getPlayTime())); // 按播放时间降序排列
-
                 // 遍历该日期下的视频历史记录
                 for (History history : historyList) {
                     int videoId = history.getVideoId();

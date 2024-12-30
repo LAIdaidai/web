@@ -9,13 +9,14 @@ import com.example.movieplaystation.JDBCUtils;
 
 public class PlayHistoryService {
     public Map<String, List<History>> getPlayHistoryByUsername(String username) {
-        Map<String, List<History>> groupedHistory = new TreeMap<>();  // 使用 TreeMap 按日期排序
+        Map<String, List<History>> groupedHistory = new TreeMap<>(Collections.reverseOrder()); // 按日期降序排序
 
         try (Connection connection = JDBCUtils.getConnection()) {
             String sql = "SELECT p.video_id, v.cover_image_path, p.username, v.title, p.play_time " +
                     "FROM play_history p " +
                     "JOIN videos v ON p.video_id = v.id " +
-                    "WHERE p.username = ?";
+                    "WHERE p.username = ? " +
+                    "ORDER BY p.play_time DESC"; // 按播放时间降序排序
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setString(1, username);
