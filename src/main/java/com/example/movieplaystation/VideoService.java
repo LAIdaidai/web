@@ -41,21 +41,4 @@ public class VideoService {
         return videoList;
     }
 
-    // 删除视频的方法
-    public static boolean deleteVideo(int videoId) {
-        String sql = "DELETE FROM videos WHERE id = ?";  // 删除指定视频ID的SQL语句
-        try (Connection conn = JDBCUtils.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setInt(1, videoId);  // 设置视频ID
-
-            int rowsAffected = stmt.executeUpdate();  // 执行删除操作
-            return rowsAffected > 0;  // 如果有记录被删除，返回 true
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("删除视频时发生错误: " + e.getMessage());
-            return false;  // 如果删除失败，返回 false
-        }
-    }
 }

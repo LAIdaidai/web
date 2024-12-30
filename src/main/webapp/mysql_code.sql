@@ -67,12 +67,6 @@ ALTER TABLE videos
 
 #删除
 DELETE FROM videos WHERE id= 17;
-#更新数据
-UPDATE videos SET videos.type='电影' WHERE id = 16;
-
-UPDATE videos
-SET cover_image_path = 'images/吞噬星空剧场版 血洛大陆.jpg'
-WHERE title = '吞噬星空剧场版 血洛大陆';
 
 -- 备份评论、评分和播放历史表的数据
 CREATE TABLE backup_users AS SELECT * FROM users;

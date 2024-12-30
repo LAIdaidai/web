@@ -16,8 +16,6 @@ import com.example.movieplaystation.JDBCUtils;
 
 @WebServlet("/movieList")
 public class MovieListServlet extends HttpServlet {
-
-    // 静态代码块加载JDBC驱动
     static {
         try {
             // 加载MySQL数据库驱动
@@ -57,7 +55,6 @@ public class MovieListServlet extends HttpServlet {
                     video.setId(rs.getInt("id"));
                     video.setTitle(rs.getString("title"));
                     video.setVideoPath(rs.getString("cover_image_path"));
-
                     videoList.add(video);
                 } while (rs.next());
 

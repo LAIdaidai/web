@@ -79,7 +79,6 @@ public class Video {
         this.type = type;
     }
 
-    // Override toString() 方法
     @Override
     public String toString() {
         return "Video{" +

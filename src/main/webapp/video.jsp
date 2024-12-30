@@ -86,8 +86,6 @@
         <%
             }
         %>
-
-
         // 获取页面元素
         const urlParams = new URLSearchParams(window.location.search);
         const videoId = urlParams.get('videoId');
@@ -125,10 +123,10 @@
                     console.warn('视频文件不存在，切换到备用视频');
                     videoSource.src = fallbackVideo;
                 }
-
                 // 加载视频
                 videoPlayer.load();
-                // 在视频加载时发送播放历史记录到后端
+
+                // 发送播放历史记录到后端
                 window.onload = function() {
                     const videoId = urlParams.get('videoId');
                     const username = "<%= session.getAttribute("username") != null ? session.getAttribute("username") : "匿名" %>";
@@ -152,8 +150,6 @@
             videoSource.src = fallbackVideo; // 使用备用视频作为默认视频
             videoPlayer.load();
         }
-
-
     </script>
 
 
