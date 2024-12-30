@@ -34,7 +34,7 @@
     <form action="SearchServlet" method="POST">
       <!-- 输入框 -->
       <div id="searchFields">
-        <input type="text" id="searchQuery" name="searchQuery" placeholder="请输入搜索内容..." />
+        <input type="text" id="searchQuery" name="searchQuery" placeholder="请输入搜索内容..." required/>
       </div>
       <button type="submit">搜索</button>
       <!-- 搜索方式选择 -->

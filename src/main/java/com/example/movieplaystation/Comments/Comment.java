@@ -47,8 +47,4 @@ public class Comment {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(commentTime);
     }
-
-    public void setCommentTime(Timestamp commentTime) {
-        this.commentTime = commentTime;
-    }
 }

@@ -26,7 +26,7 @@
         <form action="SearchServlet" method="POST">
             <div id="searchFields">
                 <!-- 保持搜索查询和搜索方式 -->
-                <input type="text" id="searchQuery" name="searchQuery" value="<%= request.getAttribute("searchQuery") != null ? request.getAttribute("searchQuery") : "" %>" placeholder="请输入搜索内容..." />
+                <input type="text" id="searchQuery" name="searchQuery" value="<%= request.getAttribute("searchQuery") != null ? request.getAttribute("searchQuery") : "" %>" placeholder="请输入搜索内容..." required/>
             </div>
             <button type="submit">搜索</button>
             <select id="searchBy" name="searchBy" onchange="toggleSearchFields()">

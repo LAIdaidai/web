@@ -99,11 +99,7 @@ SELECT username, video_id, play_time
 FROM backup_play_history;
 
 INSERT INTO users (username, password,register_time, phonenumber)
-SELECT
-    username,
-    password,
-    register_time,
-    phonenumber
+SELECT username,password,register_time,phonenumber
 FROM backup_users;
 
 

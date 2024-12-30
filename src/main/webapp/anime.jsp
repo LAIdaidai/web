@@ -29,7 +29,7 @@
         <form action="SearchServlet" method="POST">
             <!-- 输入框 -->
             <div id="searchFields">
-                <input type="text" id="searchQuery" name="searchQuery" placeholder="请输入搜索内容..." />
+                <input type="text" id="searchQuery" name="searchQuery" placeholder="请输入搜索内容..." required/>
             </div>
             <button type="submit">搜索</button>
             <!-- 搜索方式选择 -->
@@ -88,7 +88,6 @@
 
     <!-- 动漫展示区域 -->
     <div class="anime-grid">
-        <% List<Video> videoList = (List<Video>) request.getAttribute("videoList"); %>
         <c:choose>
             <c:when test="${not empty videoList}">
                 <c:forEach var="video" items="${videoList}">

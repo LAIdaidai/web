@@ -19,8 +19,6 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-
-
         // 数据库验证逻辑
         Connection connection = null;
         PreparedStatement preparedStatement = null;
