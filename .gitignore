@@ -32,9 +32,6 @@ build/
 !**/src/test/**/build/
 
 
-### Database Settings ###
-src/main/resources/db.properties
-
 ### VS Code ###
 .vscode/
 

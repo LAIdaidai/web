@@ -6,6 +6,7 @@
 
     <!-- 配置欢迎页面 -->
     <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
         <welcome-file>TopRatedVideosServlet</welcome-file>
     </welcome-file-list>
 
@@ -43,6 +44,15 @@
     <servlet-mapping>
         <servlet-name>AverageRatingServlet</servlet-name>
         <url-pattern>/AverageRatingServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TopRatedVideosServlet</servlet-name>
+        <servlet-class>com.example.movieplaystation.page.TopRatedVideosServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TopRatedVideosServlet</servlet-name>
+        <url-pattern>/TopRatedVideosServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>
