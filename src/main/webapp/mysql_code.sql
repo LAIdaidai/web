@@ -1,4 +1,5 @@
 CREATE DATABASE web;
+use web;
 
 CREATE TABLE users (
                        id INT AUTO_INCREMENT PRIMARY KEY,         -- 自动增长的主键
